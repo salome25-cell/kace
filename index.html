@@ -2,690 +2,576 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>kace jewelry | Lace Jewelry — Elegance Redefined</title>
-  <!-- Google Fonts & simple reset -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>kace jewelry | 3D Interactive Experience</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      background-color: #fef9f4;
-      font-family: 'Inter', sans-serif;
-      color: #2a241f;
-      line-height: 1.4;
-      scroll-behavior: smooth;
+      margin: 0;
+      overflow: hidden;
+      font-family: 'Playfair Display', 'Inter', serif;
+      color: #e8d6c5;
     }
 
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 32px;
-    }
-
-    .lace-bg {
+    /* Black velvet background with subtle texture */
+    .bg-black-texture {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      pointer-events: none;
-      background-image: radial-gradient(circle at 10% 20%, rgba(220, 190, 160, 0.08) 1.5px, transparent 1.5px);
-      background-size: 28px 28px;
-      z-index: 0;
+      background: #000000;
+      z-index: -2;
     }
-
-    .site-header {
-      padding: 28px 0 20px;
-      border-bottom: 1px solid #f0e2d4;
-      background: rgba(254, 249, 244, 0.92);
-      backdrop-filter: blur(2px);
-      position: sticky;
+    
+    /* Fabric noise overlay for depth */
+    .fabric-overlay {
+      position: fixed;
       top: 0;
-      z-index: 10;
-    }
-
-    .logo-area {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .logo h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 600;
-      letter-spacing: -0.5px;
-      color: #b48c6c;
-    }
-    .logo p {
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #9b7b62;
-      margin-top: 6px;
-    }
-
-    .tagline-hero {
-      font-style: italic;
-      font-weight: 400;
-      color: #7f6148;
-      border-left: 2px solid #e4cdb9;
-      padding-left: 20px;
-    }
-    .tagline-hero span {
-      display: block;
-      font-size: 0.85rem;
-      font-family: monospace;
-      letter-spacing: 0;
-    }
-
-    .hero {
-      padding: 60px 0 40px;
-      text-align: center;
-    }
-    .hero-badge {
-      background: #f2e7df;
-      display: inline-block;
-      padding: 6px 18px;
-      border-radius: 40px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: #b48c6c;
-      letter-spacing: 1px;
-      margin-bottom: 24px;
-    }
-    .hero-title {
-      font-size: 3.8rem;
-      font-family: 'Playfair Display', serif;
-      font-weight: 500;
-      color: #35281e;
-      line-height: 1.2;
-      max-width: 800px;
-      margin: 0 auto 24px;
-    }
-    .hero-title i {
-      font-weight: 300;
-      color: #c7a07e;
-    }
-    .hero-desc {
-      max-width: 680px;
-      margin: 0 auto 32px;
-      font-size: 1.1rem;
-      color: #5f4a36;
-      line-height: 1.5;
-    }
-
-    .quote-block {
-      background: #fffaf5;
-      border-radius: 32px;
-      padding: 40px 32px;
-      margin: 32px 0 48px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.02);
-      border: 1px solid #f5e6db;
-      text-align: center;
-    }
-    .quote-text {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.7rem;
-      font-weight: 400;
-      color: #4a3424;
-      line-height: 1.4;
-      quotes: "“" "”" "‘" "’";
-    }
-    .quote-text::before {
-      content: "“";
-      font-size: 2.2rem;
-      margin-right: 6px;
-      color: #cfb193;
-    }
-    .quote-text::after {
-      content: "”";
-      font-size: 2.2rem;
-      margin-left: 6px;
-      vertical-align: top;
-      color: #cfb193;
-    }
-    .quote-author {
-      margin-top: 20px;
-      font-weight: 500;
-      letter-spacing: 1px;
-      color: #9c7a60;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-    }
-
-    /* story section: the box that contains both the birth text and the image */
-    .story-section {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 48px;
-      align-items: center;
-      margin: 56px 0;
-      background: #fffbf8;
-      border-radius: 48px;
-      padding: 48px 48px;
-      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.05);
-      border: 1px solid #f5e6db;
-    }
-    .story-text {
-      flex: 1.2;
-    }
-    .story-visual {
-      flex: 0.9;
-      border-radius: 36px;
-      min-height: 380px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      background: #f3ece5;
-      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.08);
-      border: 1px solid rgba(220, 190, 160, 0.4);
-    }
-    /* main image styling (kace jewelry.png inside the box) */
-    .story-visual .brand-main-image {
+      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-      border-radius: 36px;
-    }
-    .story-visual:hover .brand-main-image {
-      transform: scale(1.02);
-    }
-    .visual-overlay-caption {
-      position: absolute;
-      bottom: 18px;
-      left: 18px;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(8px);
-      padding: 6px 16px;
-      border-radius: 40px;
-      color: #fff2e6;
-      font-size: 0.75rem;
-      letter-spacing: 0.5px;
-      font-weight: 500;
+      background-image: radial-gradient(circle at 30% 40%, rgba(30, 25, 22, 0.4) 1px, transparent 1px);
+      background-size: 24px 24px;
       pointer-events: none;
-      z-index: 3;
-      font-family: 'Inter', monospace;
-      border-left: 2px solid #dbbd9f;
+      z-index: -1;
+      opacity: 0.6;
     }
 
-    .story-text h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      font-weight: 500;
-      color: #b48c6c;
-      margin-bottom: 20px;
-      position: relative;
-      display: inline-block;
-    }
-    .story-text h2:after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
+    /* Subtle vignette */
+    .vignette {
+      position: fixed;
+      top: 0;
       left: 0;
-      width: 60px;
-      height: 2px;
-      background: #e4cdb9;
-    }
-    .story-text p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 20px;
-      color: #3f2e22;
-    }
-    .story-date {
-      font-size: 0.85rem;
-      color: #bc9a7c;
-      font-weight: 500;
-      margin-top: 16px;
-      border-top: 1px dashed #e9d9ce;
-      padding-top: 16px;
-      display: inline-block;
-    }
-
-    .values-grid {
-      display: flex;
-      gap: 32px;
-      flex-wrap: wrap;
-      margin: 60px 0 40px;
-    }
-    .value-card {
-      background: white;
-      border-radius: 32px;
-      padding: 28px 24px;
-      flex: 1;
-      min-width: 200px;
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
-      border: 1px solid #f2e2d4;
-      transition: all 0.25s ease;
-    }
-    .value-card:hover {
-      transform: translateY(-4px);
-      border-color: #e5cfbf;
-      box-shadow: 0 16px 28px -8px rgba(100, 70, 40, 0.08);
-    }
-    .value-icon {
-      font-size: 2.2rem;
-      margin-bottom: 16px;
-    }
-    .value-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-      font-size: 1.5rem;
-      margin-bottom: 12px;
-      color: #b48c6c;
-    }
-    .value-card p {
-      font-size: 0.95rem;
-      color: #5e4533;
-      line-height: 1.5;
-    }
-
-    .quote-mini {
-      background: linear-gradient(135deg, #fff6ef, #fffbf7);
-      border-radius: 28px;
-      padding: 38px 28px;
-      margin: 40px 0 56px;
-      text-align: center;
-      border-left: 6px solid #dbbd9f;
-    }
-    .quote-mini p {
-      font-size: 1.3rem;
-      font-weight: 450;
-      font-family: 'Playfair Display', serif;
-      color: #3e2c1f;
-    }
-    .quote-mini .author {
-      font-size: 0.8rem;
-      letter-spacing: 2px;
-      margin-top: 14px;
-      color: #a98161;
-    }
-
-    .contact-section {
-      background: #ffffffdd;
-      border-radius: 40px;
-      padding: 48px 40px;
-      margin: 60px 0 70px;
-      background: #fffbf8;
-      border: 1px solid #f1e2d5;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
-    }
-    .contact-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 48px;
-      justify-content: space-between;
-    }
-    .contact-info {
-      flex: 1;
-    }
-    .contact-info h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 500;
-      color: #b48c6c;
-      margin-bottom: 20px;
-    }
-    .contact-detail {
-      margin-top: 24px;
-    }
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 20px;
-      font-size: 1rem;
-      word-break: break-word;
-    }
-    .contact-icon {
-      font-size: 1.4rem;
-      min-width: 32px;
-    }
-    .contact-item a {
-      color: #6e4f36;
-      text-decoration: none;
-      border-bottom: 1px dotted #ddc7b8;
-      transition: 0.2s;
-    }
-    .contact-item a:hover {
-      color: #b48c6c;
-      border-bottom-color: #b48c6c;
-    }
-    .contact-note {
-      margin-top: 32px;
-      font-size: 0.85rem;
-      color: #a6886e;
-      border-top: 1px solid #eeddcf;
-      padding-top: 24px;
-    }
-
-    .contact-form-side {
-      flex: 1;
-      background: #ffffff;
-      padding: 24px 28px;
-      border-radius: 32px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
-    }
-    .contact-form-side h4 {
-      font-weight: 600;
-      font-size: 1.2rem;
-      margin-bottom: 16px;
-      color: #3f2a1b;
-    }
-    .input-group {
-      margin-bottom: 18px;
-    }
-    .input-group input, .input-group textarea {
       width: 100%;
-      padding: 14px 18px;
-      border: 1px solid #eedbcb;
-      border-radius: 48px;
-      font-family: 'Inter', sans-serif;
-      background: #fefcf9;
-      transition: 0.2s;
-    }
-    .input-group textarea {
-      border-radius: 28px;
-      resize: vertical;
-    }
-    .input-group input:focus, .input-group textarea:focus {
-      outline: none;
-      border-color: #cfb193;
-      box-shadow: 0 0 0 2px rgba(207, 177, 147, 0.2);
-    }
-    button {
-      background: #b48c6c;
-      border: none;
-      padding: 12px 28px;
-      border-radius: 60px;
-      font-weight: 600;
-      color: white;
-      font-family: 'Inter', sans-serif;
-      cursor: pointer;
-      transition: 0.2s;
-      font-size: 0.9rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
-    button:hover {
-      background: #9c6f4d;
-      transform: translateY(-2px);
+      height: 100%;
+      box-shadow: inset 0 0 120px rgba(0,0,0,0.85);
+      pointer-events: none;
+      z-index: 1;
     }
 
-    footer {
+    /* Elegant overlay text */
+    .info-overlay {
+      position: absolute;
+      bottom: 28px;
+      left: 0;
+      right: 0;
       text-align: center;
-      padding: 32px 0 48px;
-      border-top: 1px solid #f0e2d4;
-      font-size: 0.8rem;
-      color: #ab8c72;
+      z-index: 20;
+      pointer-events: none;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 2px;
     }
-
-    @media (max-width: 780px) {
-      .container {
-        padding: 0 24px;
-      }
-      .hero-title {
-        font-size: 2.5rem;
-      }
-      .quote-text {
-        font-size: 1.2rem;
-      }
-      .story-section {
-        flex-direction: column;
-        padding: 32px 24px;
-      }
-      .contact-grid {
-        flex-direction: column;
-      }
-      .logo-area {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .story-visual {
-        width: 100%;
-        min-height: 280px;
-      }
-      .visual-overlay-caption {
-        font-size: 0.65rem;
-        bottom: 12px;
-        left: 12px;
-      }
+    
+    .brand-name {
+      font-size: 1.2rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+      display: inline-block;
+      padding: 10px 28px;
+      border-radius: 60px;
+      border-left: 2px solid #c9aa7b;
+      border-right: 2px solid #c9aa7b;
+      color: #f0e0d0;
+      letter-spacing: 3px;
+      font-weight: 300;
+    }
+    
+    .brand-sub {
+      font-size: 0.7rem;
+      margin-top: 12px;
+      opacity: 0.7;
+      letter-spacing: 1px;
+    }
+    
+    .instruction {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-size: 0.7rem;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-family: monospace;
+      z-index: 20;
+      pointer-events: none;
+      color: #bc9a7c;
+      font-weight: 300;
+    }
+    
+    @media (max-width: 680px) {
+      .brand-name { font-size: 0.8rem; padding: 6px 16px; }
+      .instruction { font-size: 0.55rem; top: 12px; right: 12px; }
     }
   </style>
 </head>
 <body>
-<div class="lace-bg"></div>
+<div class="bg-black-texture"></div>
+<div class="fabric-overlay"></div>
+<div class="vignette"></div>
 
-<header class="site-header">
-  <div class="container">
-    <div class="logo-area">
-      <div class="logo">
-        <h1>kace jewelry</h1>
-        <p>lace jewelry · atelier</p>
-      </div>
-      <div class="tagline-hero">
-        <span>✦ innovation in every thread ✦</span>
-        <span style="font-size: 0.7rem;">est. 2026</span>
-      </div>
-    </div>
-  </div>
-</header>
+<div class="info-overlay">
+  <div class="brand-name">✦ KACE JEWELRY ✦</div>
+  <div class="brand-sub">LACE JEWELRY · ATELIER | INNOVATION IN EVERY THREAD</div>
+</div>
+<div class="instruction">🖱️ drag to rotate · scroll to zoom</div>
 
-<main>
-  <div class="container">
-    <div class="hero">
-      <div class="hero-badge">✨ new era of elegance ✨</div>
-      <h1 class="hero-title">lace jewelry, <i>reimagined</i><br>for the modern soul</h1>
-      <p class="hero-desc">kace jewelry was created to bring innovation into the industry. We believe in quality, and by creating this brand we hope that it will bring more fashion — timeless, delicate, and brave.</p>
-    </div>
-
-    <div class="quote-block">
-      <div class="quote-text">Success is not final, failure is not fatal. It is the courage to continue that counts.</div>
-      <div class="quote-author">— Winston Churchill —</div>
-      <div style="margin-top: 18px; font-size: 0.75rem; color:#bb9a7d;">the spirit that moves kace jewelry forward</div>
-    </div>
-
-    <!-- THE BOX: birth of kace story + image right inside the same elegant container -->
-    <div class="story-section">
-      <div class="story-text">
-        <h2>the birth of kace jewelry</h2>
-        <p><strong>kace jewelry</strong> was created on the 17th of April, 2026, by <strong>Salome Lwanzo</strong> with the invaluable collaboration of <strong>Michelle Javaid</strong>. What began as a spark — an advertisement that caught Salome's eye — evolved into a bold, beautiful movement. Inspired by the interplay of light and lace texture, Salome decided to make a new move and craft a brand where artistry meets durability.</p>
-        <p>Every piece of kace jewelry is designed for those who see fashion as an extension of personality. From delicate chainmail-like lace motifs to soft metallic weaves, the brand redefines jewelry as second skin. Our mission is to fuse craftsmanship with modern vision — because beauty should never be fragile, but resilient.</p>
-        <div class="story-date">✦ founded april 17, 2026 · atelier: nairobi & london ✦</div>
-      </div>
-      <div class="story-visual" id="brandStoryVisual">
-        <!-- kace jewelry.png placed on the right side inside the same box -->
-        <img class="brand-main-image" id="mainBrandImage" src="kace jewelry.png" alt="kace jewelry signature collection — lace & metal artistry" onerror="handleImageFallback()">
-        <div class="visual-overlay-caption" id="dynamicImageCaption">🏷️ kace jewelry · lace heirloom | art of thread & metal</div>
-      </div>
-    </div>
-
-    <div class="values-grid">
-      <div class="value-card">
-        <div class="value-icon">🕊️</div>
-        <h3>innovation</h3>
-        <p>Pushing boundaries with lace-inspired metalwork, new alloys, and lightweight ergonomic designs that feel like heirlooms.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-icon">✨</div>
-        <h3>quality</h3>
-        <p>Ethically sourced materials, master artisans, and a meticulous eye for every clasp, chain, and stone.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-icon">🌸</div>
-        <h3>fashion forward</h3>
-        <p>Bridging classic lace motifs with contemporary statement pieces — for every occasion, every story.</p>
-      </div>
-    </div>
-
-    <div class="quote-mini">
-      <p>“Success is not final, failure is not fatal. It is the courage to continue that counts.”</p>
-      <div class="author">Winston Churchill · guiding mantra of kace jewelry</div>
-    </div>
-
-    <div class="contact-section" id="contact">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h3>connect with kace jewelry</h3>
-          <p style="margin-bottom: 16px;">We'd love to hear your thoughts, collaborations, or simply share the love for lace jewelry.</p>
-          <div class="contact-detail">
-            <div class="contact-item">
-              <span class="contact-icon">📞</span>
-              <span><strong>Phone / WhatsApp:</strong> <a href="tel:+254133617986">+254 133 617 986</a></span>
-            </div>
-            <div class="contact-item">
-              <span class="contact-icon">✉️</span>
-              <span><strong>Official support:</strong> <a href="mailto:lwanzos@maxwellsda.org">lwanzos@maxwellsda.org</a></span>
-            </div>
-            <div class="contact-item">
-              <span class="contact-icon">📧</span>
-              <span><strong>Salome direct:</strong> <a href="mailto:salomelwanzo87@gmail.com">salomelwanzo87@gmail.com</a></span>
-            </div>
-            <div class="contact-item">
-              <span class="contact-icon">📍</span>
-              <span>Flagship studio · Nairobi / virtual by appointment</span>
-            </div>
-          </div>
-          <div class="contact-note">
-            ⚜️ For press, custom orders or general inquiries — we reply within 24 hours.
-          </div>
-        </div>
-        <div class="contact-form-side">
-          <h4>send a message ✨</h4>
-          <form id="demo-contact" action="#" method="post">
-            <div class="input-group">
-              <input type="text" placeholder="your name" id="contactName">
-            </div>
-            <div class="input-group">
-              <input type="email" placeholder="email address" id="contactEmail">
-            </div>
-            <div class="input-group">
-              <textarea rows="3" placeholder="tell us about your jewelry dreams or questions..." id="contactMsg"></textarea>
-            </div>
-            <button type="button" id="sendMsgBtn">send note →</button>
-            <p style="font-size: 0.7rem; margin-top: 12px; color:#bb9d82;">* we'll reach out soon, like a delicate lace embrace.</p>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
-
-<footer>
-  <div class="container">
-    <p>kace jewelry — born from courage  · 2026 © Salome Lwanzo & Michelle Javaid</p>
-    <p style="margin-top: 12px; font-size: 0.7rem;">“innovation in industry, quality in every thread”</p>
-  </div>
-</footer>
-
-<script>
-  (function() {
-    // form submission simulation with elegance
-    const sendBtn = document.getElementById('sendMsgBtn');
-    if (sendBtn) {
-      sendBtn.addEventListener('click', function(e) {
-        const nameInput = document.getElementById('contactName');
-        const emailInput = document.getElementById('contactEmail');
-        const msgInput = document.getElementById('contactMsg');
-        const nameVal = nameInput ? nameInput.value.trim() : '';
-        const emailVal = emailInput ? emailInput.value.trim() : '';
-        const msgVal = msgInput ? msgInput.value.trim() : '';
-
-        if (!nameVal || !emailVal || !msgVal) {
-          alert('❀ Please fill in your name, email and message — we\'d love to hear from you! ❀');
-          return;
-        }
-        if (!emailVal.includes('@') || !emailVal.includes('.')) {
-          alert('✧ Please provide a valid email address so we can reply with grace. ✧');
-          return;
-        }
-        alert(`✨ Thank you ${nameVal}!\nYour message has been received by the kace jewelry atelier.\nWe'll answer within 24h at ${emailVal}. ✨`);
-        nameInput.value = '';
-        emailInput.value = '';
-        msgInput.value = '';
-      });
+<!-- Import Three.js core and add-ons -->
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.128.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.128.0/examples/jsm/"
     }
+  }
+</script>
 
-    // subtle hover effect for value cards
-    const cards = document.querySelectorAll('.value-card');
-    cards.forEach(card => {
-      card.addEventListener('mouseenter', () => {
-        card.style.transition = 'all 0.2s ease';
-      });
+<script type="module">
+  import * as THREE from 'three';
+  import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+  import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+
+  // --- setup scene with black elegance ---
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x000000);
+  scene.fog = new THREE.FogExp2(0x000000, 0.008); // subtle depth fog
+
+  // --- camera: positioned to see the cube well ---
+  const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera.position.set(3, 2, 5);
+  camera.lookAt(0, 0, 0);
+
+  // --- renderers: WebGL for 3D, CSS2D for crisp text branding ---
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.shadowMap.enabled = true; // subtle shadows for depth
+  renderer.setClearColor(0x000000, 1);
+  document.body.appendChild(renderer.domElement);
+
+  const labelRenderer = new CSS2DRenderer();
+  labelRenderer.setSize(window.innerWidth, window.innerHeight);
+  labelRenderer.domElement.style.position = 'absolute';
+  labelRenderer.domElement.style.top = '0px';
+  labelRenderer.domElement.style.left = '0px';
+  labelRenderer.domElement.style.pointerEvents = 'none';
+  document.body.appendChild(labelRenderer.domElement);
+
+  // --- controls: enabling full rotation with mouse (dragging + zoom) ---
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;          // smooth inertia
+  controls.dampingFactor = 0.05;
+  controls.rotateSpeed = 1.5;
+  controls.zoomSpeed = 1.2;
+  controls.panSpeed = 0.8;
+  controls.enableZoom = true;
+  controls.enablePan = true;
+  controls.autoRotate = false;
+  controls.target.set(0, 0, 0);
+
+  // --- LIGHTS: dramatic, soft illumination to highlight lace textures ---
+  // Ambient for overall softness
+  const ambientLight = new THREE.AmbientLight(0x221c18);
+  scene.add(ambientLight);
+  
+  // Main key light from upper left
+  const mainLight = new THREE.DirectionalLight(0xebd5bc, 1.2);
+  mainLight.position.set(2, 3, 2);
+  mainLight.castShadow = true;
+  mainLight.receiveShadow = false;
+  mainLight.shadow.mapSize.width = 1024;
+  mainLight.shadow.mapSize.height = 1024;
+  scene.add(mainLight);
+  
+  // Fill light from right, warm gold
+  const fillLight = new THREE.PointLight(0xc9aa7b, 0.6);
+  fillLight.position.set(1.5, 1, 2);
+  scene.add(fillLight);
+  
+  // Rim light from back left for edge definition
+  const rimLight = new THREE.PointLight(0xd8bb9c, 0.5);
+  rimLight.position.set(-1.5, 1.2, -2);
+  scene.add(rimLight);
+  
+  // Soft back rim to create glow
+  const backRim = new THREE.PointLight(0xbf9d7a, 0.4);
+  backRim.position.set(0, 1, -2.8);
+  scene.add(backRim);
+  
+  // Optional subtle fill from below
+  const fillBottom = new THREE.PointLight(0x7a5a3e, 0.3);
+  fillBottom.position.set(0, -2, 0);
+  scene.add(fillBottom);
+  
+  // decorative floating particles (sparkle effect)
+  const particleCount = 800;
+  const particlesGeometry = new THREE.BufferGeometry();
+  const particlePositions = new Float32Array(particleCount * 3);
+  for (let i = 0; i < particleCount; i++) {
+    // spread particles in a sphere area radius ~4.5
+    particlePositions[i*3] = (Math.random() - 0.5) * 9;
+    particlePositions[i*3+1] = (Math.random() - 0.5) * 6;
+    particlePositions[i*3+2] = (Math.random() - 0.5) * 7 - 2;
+  }
+  particlesGeometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+  const particleMaterial = new THREE.PointsMaterial({
+    color: 0xdbba9c,
+    size: 0.045,
+    transparent: true,
+    opacity: 0.4,
+    blending: THREE.AdditiveBlending
+  });
+  const particles = new THREE.Points(particlesGeometry, particleMaterial);
+  scene.add(particles);
+  
+  // subtle rotating particle field animation
+  function animateParticles() {
+    particles.rotation.y += 0.0008;
+    particles.rotation.x += 0.0004;
+    requestAnimationFrame(animateParticles);
+  }
+  animateParticles();
+
+  // --- CORE: 3D rotatable cube with LUXURY JEWELRY panels (kace jewelry essence) ---
+  // Create an array of canvas textures representing 6 faces that embody "kace jewelry" brand
+  // Face order: right, left, up, down, front, back (standard BoxGeometry mapping)
+  
+  const createLaceTexture = (text, bgColor, accentColor, isMainBrandFace = false, additionalNote = '') => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 1024;
+    canvas.height = 1024;
+    const ctx = canvas.getContext('2d');
+    
+    // Background: rich dark velvet or premium tone
+    ctx.fillStyle = bgColor;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    // Lace-like border pattern: intricate radial and linear gradients
+    ctx.save();
+    ctx.strokeStyle = accentColor;
+    ctx.lineWidth = 12;
+    for (let i = 0; i < 3; i++) {
+      ctx.beginPath();
+      ctx.rect(30 + i*15, 30 + i*15, canvas.width - 60 - i*30, canvas.height - 60 - i*30);
+      ctx.stroke();
+    }
+    
+    // delicate corner ornaments (lace filigree)
+    ctx.beginPath();
+    ctx.moveTo(40, 40);
+    ctx.quadraticCurveTo(80, 20, 120, 40);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(canvas.width-40, 40);
+    ctx.quadraticCurveTo(canvas.width-80, 20, canvas.width-120, 40);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(40, canvas.height-40);
+    ctx.quadraticCurveTo(80, canvas.height-20, 120, canvas.height-40);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(canvas.width-40, canvas.height-40);
+    ctx.quadraticCurveTo(canvas.width-80, canvas.height-20, canvas.width-120, canvas.height-40);
+    ctx.stroke();
+    
+    // decorative dots resembling lace eyelets
+    ctx.fillStyle = accentColor;
+    for (let d = 0; d < 80; d++) {
+      const x = 50 + Math.random() * (canvas.width - 100);
+      const y = 50 + Math.random() * (canvas.height - 100);
+      if (x < 100 || x > canvas.width-100 || y < 100 || y > canvas.height-100) {
+        ctx.beginPath();
+        ctx.arc(x, y, 3 + Math.random() * 4, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+    
+    // Main elegant typography
+    ctx.font = `700 ${isMainBrandFace ? 78 : 62}px 'Playfair Display', serif`;
+    ctx.fillStyle = accentColor;
+    ctx.shadowColor = 'rgba(0,0,0,0.5)';
+    ctx.shadowBlur = 8;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    
+    // Split text into lines if needed
+    const lines = text.split('\\n');
+    const startY = canvas.height/2 - (lines.length-1) * 55;
+    lines.forEach((line, idx) => {
+      ctx.fillText(line, canvas.width/2, startY + idx * 85);
     });
-
-    // Image handling: show kace jewelry.png prominently, with a graceful fallback message if image missing
-    const mainImage = document.getElementById('mainBrandImage');
-    const visualContainer = document.getElementById('brandStoryVisual');
-    const dynamicCaption = document.getElementById('dynamicImageCaption');
-
-    function handleImageFallback() {
-      if (!mainImage) return;
-      // If image fails, show elegant fallback design but keep the box consistent
-      if (mainImage.style.display !== 'none') {
-        mainImage.style.display = 'none';
-        // Create a beautiful placeholder inside the visual container
-        if (!visualContainer.querySelector('.elegant-fallback')) {
-          const fallbackDiv = document.createElement('div');
-          fallbackDiv.className = 'visual-overlay-caption';
-          fallbackDiv.style.position = 'absolute';
-          fallbackDiv.style.top = '50%';
-          fallbackDiv.style.left = '50%';
-          fallbackDiv.style.transform = 'translate(-50%, -50%)';
-          fallbackDiv.style.bottom = 'auto';
-          fallbackDiv.style.right = 'auto';
-          fallbackDiv.style.background = 'rgba(45, 35, 28, 0.75)';
-          fallbackDiv.style.backdropFilter = 'blur(10px)';
-          fallbackDiv.style.padding = '12px 24px';
-          fallbackDiv.style.fontSize = '0.9rem';
-          fallbackDiv.style.whiteSpace = 'nowrap';
-          fallbackDiv.style.width = 'auto';
-          fallbackDiv.style.textAlign = 'center';
-          fallbackDiv.innerHTML = '✨ kace jewelry · signature lace collection ✨<br><span style="font-size:0.7rem;">(add "kace jewelry.png" to reveal masterpiece)</span>';
-          fallbackDiv.style.fontFamily = "'Playfair Display', serif";
-          fallbackDiv.style.borderLeft = '2px solid #e6c8ae';
-          fallbackDiv.classList.add('elegant-fallback');
-          visualContainer.style.position = 'relative';
-          visualContainer.style.background = '#f5ede5';
-          visualContainer.appendChild(fallbackDiv);
-        }
-        if (dynamicCaption) dynamicCaption.innerHTML = '🖼️ kace jewelry · awaiting visual poetry';
-      }
+    
+    // Subtitle or small detail
+    if (additionalNote) {
+      ctx.font = `400 28px 'Inter', sans-serif`;
+      ctx.fillStyle = '#e5ccb3';
+      ctx.fillText(additionalNote, canvas.width/2, canvas.height - 110);
     }
-
-    if (mainImage) {
-      mainImage.onerror = handleImageFallback;
-      mainImage.onload = function() {
-        // image loaded successfully: ensure any fallback is removed
-        const existingFallback = visualContainer.querySelector('.elegant-fallback');
-        if (existingFallback) existingFallback.remove();
-        if (dynamicCaption) dynamicCaption.innerHTML = '🏷️ kace jewelry · lace heirloom | art of thread & metal';
-        mainImage.style.display = 'block';
-      };
-      // if image already failed before event binding
-      if (mainImage.complete && mainImage.naturalWidth === 0) {
-        handleImageFallback();
-      }
+    
+    // add delicate lace pattern using strokes around center motif
+    ctx.beginPath();
+    ctx.arc(canvas.width/2, canvas.height/2, 180, 0, Math.PI * 2);
+    ctx.strokeStyle = accentColor + 'aa';
+    ctx.lineWidth = 4;
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(canvas.width/2, canvas.height/2, 210, 0, Math.PI * 2);
+    ctx.stroke();
+    
+    ctx.restore();
+    
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.needsUpdate = true;
+    return texture;
+  };
+  
+  // Define 6 faces with brand-centric content (kace jewelry theme)
+  const textures = [
+    // right: face 0: "KACE" main branding
+    createLaceTexture('KACE\nJEWELRY', '#0a0806', '#dbbc9b', true, 'lace atelier'),
+    // left: face 1: Innovation & Lace
+    createLaceTexture('INNOVATION\nIN THREADS', '#0b0907', '#cfae89', false, 'modern heirlooms'),
+    // up: face 2: "Est. 2026"
+    createLaceTexture('EST. 2026', '#0d0b09', '#d5b48c', false, 'timeless courage'),
+    // down: face 3: "SALOME & MICHELLE"
+    createLaceTexture('SALOME &\nMICHELLE', '#0a0806', '#c9a77d', false, 'founded april 17'),
+    // front: face 4: main hero "kace jewelry" lace reimagined
+    createLaceTexture('LACE\nREIMAGINED', '#0c0907', '#e2c4a3', true, 'delicate strength'),
+    // back: face 5: quote / spirit
+    createLaceTexture('COURAGE\nTO CONTINUE', '#0a0705', '#dabb96', false, 'churchill · mantra')
+  ];
+  
+  const materials = textures.map(tex => new THREE.MeshStandardMaterial({
+    map: tex,
+    roughness: 0.32,
+    metalness: 0.68,
+    emissive: 0x110a05,
+    emissiveIntensity: 0.12,
+    side: THREE.DoubleSide
+  }));
+  
+  // create a gorgeous cube with slightly beveled edges? using BoxGeometry standard but add slight reflection
+  const geometry = new THREE.BoxGeometry(2.2, 2.2, 2.2);
+  const cube = new THREE.Mesh(geometry, materials);
+  cube.castShadow = true;
+  cube.receiveShadow = false;
+  scene.add(cube);
+  
+  // Add glowing wireframe edges around cube for luxurious definition
+  const edgesGeo = new THREE.EdgesGeometry(geometry);
+  const edgesMat = new THREE.LineBasicMaterial({ color: 0xdbbd9a, linewidth: 1 });
+  const wireframe = new THREE.LineSegments(edgesGeo, edgesMat);
+  cube.add(wireframe);
+  
+  // Floating delicate CSS2D labels around cube (brand enhancers)
+  const makeFloatingLabel = (text, x, y, z, fontSize = '1rem') => {
+    const div = document.createElement('div');
+    div.textContent = text;
+    div.style.color = '#e7d5c2';
+    div.style.fontSize = fontSize;
+    div.style.fontFamily = "'Playfair Display', serif";
+    div.style.fontWeight = '400';
+    div.style.textShadow = '0 0 8px rgba(0,0,0,0.7)';
+    div.style.background = 'rgba(15, 12, 10, 0.55)';
+    div.style.backdropFilter = 'blur(6px)';
+    div.style.padding = '6px 16px';
+    div.style.borderRadius = '50px';
+    div.style.borderLeft = `2px solid #c9aa7b`;
+    div.style.letterSpacing = '1px';
+    div.style.whiteSpace = 'nowrap';
+    const label = new CSS2DObject(div);
+    label.position.set(x, y, z);
+    scene.add(label);
+    return label;
+  };
+  
+  // floating brand accents around cube (orbiting)
+  const floatingLabel1 = makeFloatingLabel('✦ KACE LACE ✦', 1.6, 1.4, 1.3, '0.85rem');
+  const floatingLabel2 = makeFloatingLabel('handcrafted vision', -1.5, 1.6, 1.2, '0.75rem');
+  const floatingLabel3 = makeFloatingLabel('resilient beauty', 1.7, -1.3, -1.2, '0.75rem');
+  const floatingLabel4 = makeFloatingLabel('nairobi · london', -1.8, -1.5, 1.4, '0.7rem');
+  const floatingLabel5 = makeFloatingLabel('second skin jewelry', 0, 2.2, 0, '0.8rem');
+  
+  // small floating particles that orbit more glamorously
+  const sparkleGroup = new THREE.Group();
+  const sparkleCount = 180;
+  const sparkles = [];
+  for (let i = 0; i < sparkleCount; i++) {
+    const size = 0.02 + Math.random() * 0.03;
+    const starMat = new THREE.MeshStandardMaterial({
+      color: 0xe5c6a3,
+      emissive: 0xc97e4a,
+      emissiveIntensity: 0.3,
+      metalness: 0.9
+    });
+    const starMesh = new THREE.Mesh(new THREE.SphereGeometry(size, 6, 6), starMat);
+    const radius = 1.6 + Math.random() * 1.2;
+    const theta = Math.random() * Math.PI * 2;
+    const phi = Math.acos(2 * Math.random() - 1);
+    starMesh.userData = {
+      radius,
+      theta,
+      phi,
+      speedTheta: 0.002 + Math.random() * 0.005,
+      speedPhi: 0.001 + Math.random() * 0.004
+    };
+    starMesh.position.x = radius * Math.sin(phi) * Math.cos(theta);
+    starMesh.position.y = radius * Math.sin(phi) * Math.sin(theta);
+    starMesh.position.z = radius * Math.cos(phi);
+    sparkleGroup.add(starMesh);
+    sparkles.push(starMesh);
+  }
+  scene.add(sparkleGroup);
+  
+  // luminous dust ring around cube (thin torus)
+  const dustRing = new THREE.Mesh(
+    new THREE.TorusGeometry(1.45, 0.025, 64, 300),
+    new THREE.MeshStandardMaterial({ color: 0xdbbc9b, emissive: 0x8a623f, emissiveIntensity: 0.3, metalness: 0.7 })
+  );
+  dustRing.rotation.x = Math.PI / 2;
+  scene.add(dustRing);
+  
+  const dustRing2 = new THREE.Mesh(
+    new THREE.TorusGeometry(1.65, 0.018, 64, 300),
+    new THREE.MeshStandardMaterial({ color: 0xc8a87c, emissive: 0x6b4c2e, emissiveIntensity: 0.2 })
+  );
+  dustRing2.rotation.z = Math.PI / 3;
+  dustRing2.rotation.x = Math.PI / 3;
+  scene.add(dustRing2);
+  
+  // animate sparkles rotation individually
+  function animateSparkles() {
+    sparkles.forEach(sp => {
+      sp.userData.theta += sp.userData.speedTheta;
+      sp.userData.phi += sp.userData.speedPhi;
+      const r = sp.userData.radius;
+      const theta = sp.userData.theta;
+      const phi = sp.userData.phi;
+      sp.position.x = r * Math.sin(phi) * Math.cos(theta);
+      sp.position.y = r * Math.sin(phi) * Math.sin(theta);
+      sp.position.z = r * Math.cos(phi);
+    });
+    dustRing.rotation.z += 0.003;
+    dustRing.rotation.y += 0.002;
+    dustRing2.rotation.x += 0.002;
+    dustRing2.rotation.y += 0.001;
+    requestAnimationFrame(animateSparkles);
+  }
+  animateSparkles();
+  
+  // subtle rotation of floating labels (CSS2D objects move in small orbit)
+  let orbitAngle = 0;
+  function animateFloatingOrbit() {
+    orbitAngle += 0.003;
+    if (floatingLabel1) {
+      floatingLabel1.position.x = 1.65 + Math.sin(orbitAngle) * 0.12;
+      floatingLabel1.position.y = 1.5 + Math.cos(orbitAngle * 0.9) * 0.1;
     }
-
-    // ensure visual container has consistent height
-    const storyVis = document.querySelector('.story-visual');
-    if (storyVis && mainImage && mainImage.complete === false) {
-      storyVis.style.minHeight = '380px';
+    if (floatingLabel2) {
+      floatingLabel2.position.x = -1.6 + Math.cos(orbitAngle * 0.7) * 0.1;
+      floatingLabel2.position.z = 1.3 + Math.sin(orbitAngle * 1.1) * 0.12;
     }
-  })();
+    if (floatingLabel3) {
+      floatingLabel3.position.z = -1.3 + Math.sin(orbitAngle * 0.8) * 0.15;
+      floatingLabel3.position.x = 1.55 + Math.cos(orbitAngle * 0.6) * 0.1;
+    }
+    requestAnimationFrame(animateFloatingOrbit);
+  }
+  animateFloatingOrbit();
+  
+  // subtle pulsating light intensity for drama
+  let time = 0;
+  
+  // --- add floating tiny delicate lace symbols as 3D planes with lace texture? ---
+  const laceSymbolMat = new THREE.MeshStandardMaterial({ color: 0xdbbc9b, emissive: 0x5a3e28, emissiveIntensity: 0.2, transparent: true, opacity: 0.5 });
+  const ornamentGroup = new THREE.Group();
+  for (let i = 0; i < 24; i++) {
+    const petal = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.12, 0.05, 6), laceSymbolMat);
+    const rad = 1.3;
+    const ang = (i / 24) * Math.PI * 2;
+    petal.position.x = Math.cos(ang) * rad;
+    petal.position.z = Math.sin(ang) * rad;
+    petal.position.y = Math.sin(ang * 2) * 0.25;
+    ornamentGroup.add(petal);
+  }
+  scene.add(ornamentGroup);
+  
+  function animateOrnament() {
+    ornamentGroup.rotation.y += 0.005;
+    ornamentGroup.rotation.x = Math.sin(Date.now() * 0.0008) * 0.1;
+    requestAnimationFrame(animateOrnament);
+  }
+  animateOrnament();
+  
+  // dynamic color shimmer on fillLight
+  function animateLights() {
+    time += 0.012;
+    const intensityVar = 0.55 + Math.sin(time) * 0.12;
+    fillLight.intensity = intensityVar;
+    rimLight.intensity = 0.5 + Math.cos(time * 0.7) * 0.1;
+    backRim.intensity = 0.45 + Math.sin(time * 0.9) * 0.1;
+    requestAnimationFrame(animateLights);
+  }
+  animateLights();
+  
+  // small floating diamonds (geometric accents)
+  const diamondGeo = new THREE.OctahedronGeometry(0.08);
+  const diamondMat = new THREE.MeshStandardMaterial({ color: 0xf2e0c9, metalness: 0.85, roughness: 0.25, emissive: 0x6a4c2a });
+  for (let i = 0; i < 60; i++) {
+    const diamond = new THREE.Mesh(diamondGeo, diamondMat);
+    const rad = 1.9;
+    const angle = Math.random() * Math.PI * 2;
+    const height = (Math.random() - 0.5) * 2.4;
+    diamond.position.x = Math.cos(angle) * rad;
+    diamond.position.z = Math.sin(angle) * rad;
+    diamond.position.y = height;
+    diamond.userData = { origY: height, speed: 0.005 + Math.random() * 0.01 };
+    scene.add(diamond);
+  }
+  
+  // --- Animation Loop: Rotate cube optionally? but we want user mouse control mainly. But cube stays, controls handle full rotation. Add slight idle bounce? not needed.
+  // However we add a soft self-rotation only if user idle? but we keep it elegant with controls.
+  // just update controls, render with reflections/pass.
+  
+  function animate() {
+    controls.update(); // allows full mouse rotation (draggable)
+    
+    // gently rotate particles and shimmer around cube
+    particles.rotation.z += 0.0003;
+    
+    renderer.render(scene, camera);
+    labelRenderer.render(scene, camera);
+    requestAnimationFrame(animate);
+  }
+  
+  animate();
+  
+  // handle window resize
+  window.addEventListener('resize', onWindowResize, false);
+  function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    labelRenderer.setSize(window.innerWidth, window.innerHeight);
+  }
+  
+  // tiny style adjustment for CSS2D renderer visibility
+  labelRenderer.domElement.style.pointerEvents = 'none';
+  
+  // change document title to kace jewelry
+  document.title = "kace jewelry | Lace Jewelry 3D Experience";
+  
+  // Optional: add a subtle floating effect for the cube
+  let floatTime = 0;
+  function floatCube() {
+    floatTime += 0.002;
+    cube.position.y = Math.sin(floatTime) * 0.03;
+    wireframe.position.y = cube.position.y;
+    requestAnimationFrame(floatCube);
+  }
+  floatCube();
 </script>
 </body>
 </html>
