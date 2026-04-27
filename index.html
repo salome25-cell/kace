@@ -14,21 +14,19 @@
     }
 
     body {
-      background-color: #fef9f4;   /* soft lace & pearl tone */
+      background-color: #fef9f4;
       font-family: 'Inter', sans-serif;
       color: #2a241f;
       line-height: 1.4;
       scroll-behavior: smooth;
     }
 
-    /* custom container */
     .container {
       max-width: 1280px;
       margin: 0 auto;
       padding: 0 32px;
     }
 
-    /* lace texture overlay (very subtle) */
     .lace-bg {
       position: fixed;
       top: 0;
@@ -41,7 +39,6 @@
       z-index: 0;
     }
 
-    /* header & nav */
     .site-header {
       padding: 28px 0 20px;
       border-bottom: 1px solid #f0e2d4;
@@ -89,7 +86,6 @@
       letter-spacing: 0;
     }
 
-    /* main hero / brand mission */
     .hero {
       padding: 60px 0 40px;
       text-align: center;
@@ -126,7 +122,6 @@
       line-height: 1.5;
     }
 
-    /* quote block (elegant) */
     .quote-block {
       background: #fffaf5;
       border-radius: 32px;
@@ -166,51 +161,53 @@
       font-size: 0.8rem;
     }
 
-    /* brand story section: text left, visual (IMAGE) right */
+    /* story section: the box that contains both the birth text and the image */
     .story-section {
       display: flex;
       flex-wrap: wrap;
       gap: 48px;
       align-items: center;
       margin: 56px 0;
+      background: #fffbf8;
+      border-radius: 48px;
+      padding: 48px 48px;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f5e6db;
     }
     .story-text {
       flex: 1.2;
     }
     .story-visual {
       flex: 0.9;
-      background: #f3ece5;
-      border-radius: 48px;
+      border-radius: 36px;
       min-height: 380px;
-      background-image: radial-gradient(circle at 30% 40%, rgba(180, 140, 108, 0.08) 2px, transparent 2px);
-      background-size: 20px 20px;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       overflow: hidden;
       transition: all 0.3s ease;
-      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
-      border: 1px solid rgba(220, 190, 160, 0.3);
+      background: #f3ece5;
+      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(220, 190, 160, 0.4);
     }
-    /* main image styling (kace jewelry.png) */
+    /* main image styling (kace jewelry.png inside the box) */
     .story-visual .brand-main-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
       transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-      border-radius: 48px;
+      border-radius: 36px;
     }
     .story-visual:hover .brand-main-image {
       transform: scale(1.02);
     }
-    /* subtle elegant overlay caption for image context */
     .visual-overlay-caption {
       position: absolute;
       bottom: 18px;
       left: 18px;
-      background: rgba(0, 0, 0, 0.45);
+      background: rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(8px);
       padding: 6px 16px;
       border-radius: 40px;
@@ -222,21 +219,6 @@
       z-index: 3;
       font-family: 'Inter', monospace;
       border-left: 2px solid #dbbd9f;
-    }
-
-    /* fallback video (hidden by default, appears only if image fails) */
-    .story-visual .fallback-video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: none;
-      border-radius: 48px;
-    }
-    .story-visual.has-video-fallback .fallback-video {
-      display: block;
-    }
-    .story-visual.has-video-fallback .brand-main-image {
-      display: none;
     }
 
     .story-text h2 {
@@ -273,7 +255,6 @@
       display: inline-block;
     }
 
-    /* inspiration + values */
     .values-grid {
       display: flex;
       gap: 32px;
@@ -312,7 +293,6 @@
       line-height: 1.5;
     }
 
-    /* second quote (Churchill) */
     .quote-mini {
       background: linear-gradient(135deg, #fff6ef, #fffbf7);
       border-radius: 28px;
@@ -334,10 +314,8 @@
       color: #a98161;
     }
 
-    /* contact section */
     .contact-section {
       background: #ffffffdd;
-      backdrop-filter: blur(0px);
       border-radius: 40px;
       padding: 48px 40px;
       margin: 60px 0 70px;
@@ -466,6 +444,7 @@
       }
       .story-section {
         flex-direction: column;
+        padding: 32px 24px;
       }
       .contact-grid {
         flex-direction: column;
@@ -506,23 +485,19 @@
 
 <main>
   <div class="container">
-    <!-- Hero / brand mission -->
     <div class="hero">
       <div class="hero-badge">✨ new era of elegance ✨</div>
       <h1 class="hero-title">lace jewelry, <i>reimagined</i><br>for the modern soul</h1>
       <p class="hero-desc">kace jewelry was created to bring innovation into the industry. We believe in quality, and by creating this brand we hope that it will bring more fashion — timeless, delicate, and brave.</p>
     </div>
 
-    <!-- Main quote from Winston Churchill (inspirational) -->
     <div class="quote-block">
       <div class="quote-text">Success is not final, failure is not fatal. It is the courage to continue that counts.</div>
       <div class="quote-author">— Winston Churchill —</div>
       <div style="margin-top: 18px; font-size: 0.75rem; color:#bb9a7d;">the spirit that moves kace jewelry forward</div>
     </div>
 
-    <!-- Brand story: created april 17, 2026 by Salome Lwanzo & Michelle Javaid 
-         with IMAGE "kace jewelry.png" on the right side next to the birth story.
-         Also keeps a video fallback if image fails to load for a robust experience -->
+    <!-- THE BOX: birth of kace story + image right inside the same elegant container -->
     <div class="story-section">
       <div class="story-text">
         <h2>the birth of kace jewelry</h2>
@@ -531,18 +506,12 @@
         <div class="story-date">✦ founded april 17, 2026 · atelier: nairobi & london ✦</div>
       </div>
       <div class="story-visual" id="brandStoryVisual">
-        <!-- PRIMARY ASSET: kace jewelry.png as requested -->
-        <img class="brand-main-image" id="mainBrandImage" src="kace jewelry.png" alt="kace jewelry signature lace collection — delicate craftsmanship and modern elegance" onerror="handleImageFallback()">
-        <!-- Secondary video fallback (hidden unless image fails) -->
-        <video id="fallbackVideoElem" class="fallback-video" autoplay muted loop playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 340'%3E%3Crect width='400' height='340' fill='%23efe2d6'/%3E%3Ctext x='50%25' y='45%25' dominant-baseline='middle' text-anchor='middle' fill='%23b48c6c' font-size='19' font-family='Playfair Display' font-weight='500'%3E✨ kace jewelry ✨%3C/text%3E%3Ctext x='50%25' y='65%25' dominant-baseline='middle' text-anchor='middle' fill='%239c7a60' font-size='13' font-family='Inter'%3Elace in motion%3C/text%3E%3C/svg%3E">
-          <source src="kace jewelry.mp4" type="video/mp4">
-          Your browser does not support video. Discover the elegance of kace jewelry through our collection.
-        </video>
+        <!-- kace jewelry.png placed on the right side inside the same box -->
+        <img class="brand-main-image" id="mainBrandImage" src="kace jewelry.png" alt="kace jewelry signature collection — lace & metal artistry" onerror="handleImageFallback()">
         <div class="visual-overlay-caption" id="dynamicImageCaption">🏷️ kace jewelry · lace heirloom | art of thread & metal</div>
       </div>
     </div>
 
-    <!-- pillars / core values inspired by innovation + quality -->
     <div class="values-grid">
       <div class="value-card">
         <div class="value-icon">🕊️</div>
@@ -561,13 +530,11 @@
       </div>
     </div>
 
-    <!-- second quote (Churchill repeated with reverence) -->
     <div class="quote-mini">
       <p>“Success is not final, failure is not fatal. It is the courage to continue that counts.”</p>
       <div class="author">Winston Churchill · guiding mantra of kace jewelry</div>
     </div>
 
-    <!-- Contact & support section with emails -->
     <div class="contact-section" id="contact">
       <div class="contact-grid">
         <div class="contact-info">
@@ -625,7 +592,7 @@
 
 <script>
   (function() {
-    // Form handling with elegance
+    // form submission simulation with elegance
     const sendBtn = document.getElementById('sendMsgBtn');
     if (sendBtn) {
       sendBtn.addEventListener('click', function(e) {
@@ -651,7 +618,7 @@
       });
     }
 
-    // Hover effect for value cards
+    // subtle hover effect for value cards
     const cards = document.querySelectorAll('.value-card');
     cards.forEach(card => {
       card.addEventListener('mouseenter', () => {
@@ -659,89 +626,61 @@
       });
     });
 
-    // Image and fallback video logic
+    // Image handling: show kace jewelry.png prominently, with a graceful fallback message if image missing
     const mainImage = document.getElementById('mainBrandImage');
-    const fallbackVideo = document.getElementById('fallbackVideoElem');
     const visualContainer = document.getElementById('brandStoryVisual');
     const dynamicCaption = document.getElementById('dynamicImageCaption');
 
     function handleImageFallback() {
       if (!mainImage) return;
-      // If image fails to load, switch to video fallback elegantly
+      // If image fails, show elegant fallback design but keep the box consistent
       if (mainImage.style.display !== 'none') {
         mainImage.style.display = 'none';
-        if (fallbackVideo) {
-          fallbackVideo.style.display = 'block';
-          visualContainer.classList.add('has-video-fallback');
-          // Attempt to play fallback video
-          fallbackVideo.play().catch(err => {
-            // Autoplay blocked: show a clickable hint
-            if (!visualContainer.querySelector('.video-play-prompt')) {
-              const playHint = document.createElement('div');
-              playHint.className = 'visual-overlay-caption';
-              playHint.innerHTML = '🎥 click to play · kace jewelry in motion';
-              playHint.style.cursor = 'pointer';
-              playHint.style.bottom = 'auto';
-              playHint.style.top = '50%';
-              playHint.style.left = '50%';
-              playHint.style.transform = 'translate(-50%, -50%)';
-              playHint.style.background = 'rgba(0,0,0,0.65)';
-              playHint.style.backdropFilter = 'blur(10px)';
-              playHint.style.whiteSpace = 'nowrap';
-              playHint.style.padding = '8px 20px';
-              playHint.classList.add('video-play-prompt');
-              visualContainer.appendChild(playHint);
-              playHint.addEventListener('click', (e) => {
-                e.stopPropagation();
-                fallbackVideo.play().then(() => {
-                  playHint.style.display = 'none';
-                }).catch(() => {});
-              });
-              fallbackVideo.addEventListener('click', () => {
-                fallbackVideo.play().catch(() => {});
-              });
-            }
-          });
-          // If video also errors
-          fallbackVideo.addEventListener('error', function() {
-            if (!visualContainer.querySelector('.ultimate-fallback-note')) {
-              const ultimateMsg = document.createElement('div');
-              ultimateMsg.className = 'visual-overlay-caption';
-              ultimateMsg.innerHTML = '✨ kace jewelry — "lace & light" editorial collection ✨';
-              ultimateMsg.style.background = 'rgba(45, 30, 22, 0.7)';
-              ultimateMsg.style.bottom = 'auto';
-              ultimateMsg.style.top = '50%';
-              ultimateMsg.style.left = '50%';
-              ultimateMsg.style.transform = 'translate(-50%, -50%)';
-              ultimateMsg.style.whiteSpace = 'nowrap';
-              ultimateMsg.classList.add('ultimate-fallback-note');
-              visualContainer.appendChild(ultimateMsg);
-            }
-          });
+        // Create a beautiful placeholder inside the visual container
+        if (!visualContainer.querySelector('.elegant-fallback')) {
+          const fallbackDiv = document.createElement('div');
+          fallbackDiv.className = 'visual-overlay-caption';
+          fallbackDiv.style.position = 'absolute';
+          fallbackDiv.style.top = '50%';
+          fallbackDiv.style.left = '50%';
+          fallbackDiv.style.transform = 'translate(-50%, -50%)';
+          fallbackDiv.style.bottom = 'auto';
+          fallbackDiv.style.right = 'auto';
+          fallbackDiv.style.background = 'rgba(45, 35, 28, 0.75)';
+          fallbackDiv.style.backdropFilter = 'blur(10px)';
+          fallbackDiv.style.padding = '12px 24px';
+          fallbackDiv.style.fontSize = '0.9rem';
+          fallbackDiv.style.whiteSpace = 'nowrap';
+          fallbackDiv.style.width = 'auto';
+          fallbackDiv.style.textAlign = 'center';
+          fallbackDiv.innerHTML = '✨ kace jewelry · signature lace collection ✨<br><span style="font-size:0.7rem;">(add "kace jewelry.png" to reveal masterpiece)</span>';
+          fallbackDiv.style.fontFamily = "'Playfair Display', serif";
+          fallbackDiv.style.borderLeft = '2px solid #e6c8ae';
+          fallbackDiv.classList.add('elegant-fallback');
+          visualContainer.style.position = 'relative';
+          visualContainer.style.background = '#f5ede5';
+          visualContainer.appendChild(fallbackDiv);
         }
-        if (dynamicCaption) dynamicCaption.innerHTML = '🎬 kace jewelry · timeless elegance (visual story)';
+        if (dynamicCaption) dynamicCaption.innerHTML = '🖼️ kace jewelry · awaiting visual poetry';
       }
     }
 
-    // Set up image error handler and also if image loads correctly
     if (mainImage) {
       mainImage.onerror = handleImageFallback;
       mainImage.onload = function() {
-        // Ensure video is hidden and image is properly displayed
-        if (fallbackVideo) {
-          fallbackVideo.style.display = 'none';
-          fallbackVideo.pause();
-        }
-        visualContainer.classList.remove('has-video-fallback');
-        if (dynamicCaption) dynamicCaption.innerHTML = '🖼️ kace jewelry · signature lace heirloom | art of thread & metal';
+        // image loaded successfully: ensure any fallback is removed
+        const existingFallback = visualContainer.querySelector('.elegant-fallback');
+        if (existingFallback) existingFallback.remove();
+        if (dynamicCaption) dynamicCaption.innerHTML = '🏷️ kace jewelry · lace heirloom | art of thread & metal';
+        mainImage.style.display = 'block';
       };
-      // Edge case: if image already failed before event binding
+      // if image already failed before event binding
       if (mainImage.complete && mainImage.naturalWidth === 0) {
         handleImageFallback();
       }
     }
 
-    // Additional graceful enhancement: ensure visual container has proper min-height for smooth layout
+    // ensure visual container has consistent height
     const storyVis = document.querySelector('.story-visual');
     if (storyVis && mainImage && mainImage.complete === false) {
       storyVis.style.minHeight = '380px';
@@ -750,5 +689,3 @@
 </script>
 </body>
 </html>
-  
-
