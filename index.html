@@ -166,7 +166,7 @@
       font-size: 0.8rem;
     }
 
-    /* brand story card with video - VIDEO ON THE RIGHT */
+    /* brand story section: text left, visual (IMAGE) right */
     .story-section {
       display: flex;
       flex-wrap: wrap;
@@ -181,7 +181,7 @@
       flex: 0.9;
       background: #f3ece5;
       border-radius: 48px;
-      min-height: 340px;
+      min-height: 380px;
       background-image: radial-gradient(circle at 30% 40%, rgba(180, 140, 108, 0.08) 2px, transparent 2px);
       background-size: 20px 20px;
       display: flex;
@@ -193,8 +193,8 @@
       box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
       border: 1px solid rgba(220, 190, 160, 0.3);
     }
-    /* video container styling - full coverage with elegance */
-    .story-visual video {
+    /* main image styling (kace jewelry.png) */
+    .story-visual .brand-main-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -202,11 +202,11 @@
       transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
       border-radius: 48px;
     }
-    .story-visual:hover video {
+    .story-visual:hover .brand-main-image {
       transform: scale(1.02);
     }
-    /* elegant overlay caption for video context */
-    .video-overlay-caption {
+    /* subtle elegant overlay caption for image context */
+    .visual-overlay-caption {
       position: absolute;
       bottom: 18px;
       left: 18px;
@@ -223,6 +223,22 @@
       font-family: 'Inter', monospace;
       border-left: 2px solid #dbbd9f;
     }
+
+    /* fallback video (hidden by default, appears only if image fails) */
+    .story-visual .fallback-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+      border-radius: 48px;
+    }
+    .story-visual.has-video-fallback .fallback-video {
+      display: block;
+    }
+    .story-visual.has-video-fallback .brand-main-image {
+      display: none;
+    }
+
     .story-text h2 {
       font-family: 'Playfair Display', serif;
       font-size: 2.2rem;
@@ -462,26 +478,11 @@
         width: 100%;
         min-height: 280px;
       }
-      .video-overlay-caption {
+      .visual-overlay-caption {
         font-size: 0.65rem;
         bottom: 12px;
         left: 12px;
       }
-    }
-
-    /* graceful loading hint */
-    .story-visual .video-placeholder-fallback {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      font-size: 1.2rem;
-      color: #b28b6b;
-      background: #f5ede5;
-      border-radius: 48px;
-      flex-direction: column;
-      gap: 12px;
     }
   </style>
 </head>
@@ -520,7 +521,8 @@
     </div>
 
     <!-- Brand story: created april 17, 2026 by Salome Lwanzo & Michelle Javaid 
-         with VIDEO (kace jewelry.mp4) on the right side next to the birth story -->
+         with IMAGE "kace jewelry.png" on the right side next to the birth story.
+         Also keeps a video fallback if image fails to load for a robust experience -->
     <div class="story-section">
       <div class="story-text">
         <h2>the birth of kace jewelry</h2>
@@ -528,13 +530,15 @@
         <p>Every piece of kace jewelry is designed for those who see fashion as an extension of personality. From delicate chainmail-like lace motifs to soft metallic weaves, the brand redefines jewelry as second skin. Our mission is to fuse craftsmanship with modern vision — because beauty should never be fragile, but resilient.</p>
         <div class="story-date">✦ founded april 17, 2026 · atelier: nairobi & london ✦</div>
       </div>
-      <div class="story-visual">
-        <!-- VIDEO element: source points to "kace jewelry.mp4" exact filename as requested -->
-        <video autoplay muted loop playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 340'%3E%3Crect width='400' height='340' fill='%23efe2d6'/%3E%3Ctext x='50%25' y='45%25' dominant-baseline='middle' text-anchor='middle' fill='%23b48c6c' font-size='19' font-family='Playfair Display' font-weight='500'%3E✨ kace jewelry ✨%3C/text%3E%3Ctext x='50%25' y='65%25' dominant-baseline='middle' text-anchor='middle' fill='%239c7a60' font-size='13' font-family='Inter'%3Elace in motion%3C/text%3E%3C/svg%3E" style="width:100%; height:100%; object-fit: cover; border-radius: 48px;">
+      <div class="story-visual" id="brandStoryVisual">
+        <!-- PRIMARY ASSET: kace jewelry.png as requested -->
+        <img class="brand-main-image" id="mainBrandImage" src="kace jewelry.png" alt="kace jewelry signature lace collection — delicate craftsmanship and modern elegance" onerror="handleImageFallback()">
+        <!-- Secondary video fallback (hidden unless image fails) -->
+        <video id="fallbackVideoElem" class="fallback-video" autoplay muted loop playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 340'%3E%3Crect width='400' height='340' fill='%23efe2d6'/%3E%3Ctext x='50%25' y='45%25' dominant-baseline='middle' text-anchor='middle' fill='%23b48c6c' font-size='19' font-family='Playfair Display' font-weight='500'%3E✨ kace jewelry ✨%3C/text%3E%3Ctext x='50%25' y='65%25' dominant-baseline='middle' text-anchor='middle' fill='%239c7a60' font-size='13' font-family='Inter'%3Elace in motion%3C/text%3E%3C/svg%3E">
           <source src="kace jewelry.mp4" type="video/mp4">
-          Your browser does not support the video tag. Discover the elegance of kace jewelry through our collection and story.
+          Your browser does not support video. Discover the elegance of kace jewelry through our collection.
         </video>
-        <div class="video-overlay-caption">🎬 kace jewelry · lace motifs in motion | original film</div>
+        <div class="visual-overlay-caption" id="dynamicImageCaption">🏷️ kace jewelry · lace heirloom | art of thread & metal</div>
       </div>
     </div>
 
@@ -621,7 +625,7 @@
 
 <script>
   (function() {
-    // form submission simulation with elegance
+    // Form handling with elegance
     const sendBtn = document.getElementById('sendMsgBtn');
     if (sendBtn) {
       sendBtn.addEventListener('click', function(e) {
@@ -647,7 +651,7 @@
       });
     }
 
-    // subtle hover interaction for value cards
+    // Hover effect for value cards
     const cards = document.querySelectorAll('.value-card');
     cards.forEach(card => {
       card.addEventListener('mouseenter', () => {
@@ -655,79 +659,96 @@
       });
     });
 
-    // VIDEO HANDLING: kace jewelry.mp4 on the right of the birth section
-    const videoElem = document.querySelector('.story-visual video');
-    if (videoElem) {
-      // graceful error handling if video fails to load (file missing or network issue)
-      videoElem.addEventListener('error', function() {
-        const parentDiv = videoElem.closest('.story-visual');
-        if (parentDiv && !parentDiv.querySelector('.custom-fallback-marker')) {
-          // remove any existing overlays but add a graceful design note
-          const fallbackDiv = document.createElement('div');
-          fallbackDiv.className = 'video-overlay-caption';
-          fallbackDiv.style.background = 'rgba(30, 20, 15, 0.6)';
-          fallbackDiv.style.backdropFilter = 'blur(8px)';
-          fallbackDiv.style.width = 'auto';
-          fallbackDiv.style.top = '50%';
-          fallbackDiv.style.left = '50%';
-          fallbackDiv.style.transform = 'translate(-50%, -50%)';
-          fallbackDiv.style.bottom = 'auto';
-          fallbackDiv.style.right = 'auto';
-          fallbackDiv.style.padding = '10px 20px';
-          fallbackDiv.style.fontSize = '0.85rem';
-          fallbackDiv.style.whiteSpace = 'nowrap';
-          fallbackDiv.innerHTML = '🎞️ kace jewelry — visual poem (add "kace jewelry.mp4" to showcase)';
-          fallbackDiv.style.pointerEvents = 'none';
-          fallbackDiv.classList.add('custom-fallback-marker');
-          parentDiv.style.position = 'relative';
-          parentDiv.appendChild(fallbackDiv);
-          videoElem.style.opacity = '0.4';
-          videoElem.style.filter = 'grayscale(0.2)';
-        }
-      });
+    // Image and fallback video logic
+    const mainImage = document.getElementById('mainBrandImage');
+    const fallbackVideo = document.getElementById('fallbackVideoElem');
+    const visualContainer = document.getElementById('brandStoryVisual');
+    const dynamicCaption = document.getElementById('dynamicImageCaption');
 
-      // attempt autoplay with mute policy, and if blocked provide user hint
-      videoElem.play().catch(err => {
-        // Autoplay was prevented — show subtle click hint to respect user experience
-        const parentVis = videoElem.closest('.story-visual');
-        if (parentVis && !parentVis.querySelector('.click-overlay-hint')) {
-          const playHint = document.createElement('div');
-          playHint.className = 'video-overlay-caption';
-          playHint.innerHTML = '🎥 click to play · lace jewelry in motion';
-          playHint.style.cursor = 'pointer';
-          playHint.style.bottom = 'auto';
-          playHint.style.top = '50%';
-          playHint.style.left = '50%';
-          playHint.style.transform = 'translate(-50%, -50%)';
-          playHint.style.background = 'rgba(0,0,0,0.6)';
-          playHint.style.backdropFilter = 'blur(8px)';
-          playHint.style.padding = '8px 18px';
-          playHint.style.fontSize = '0.8rem';
-          playHint.style.whiteSpace = 'nowrap';
-          playHint.classList.add('click-overlay-hint');
-          parentVis.appendChild(playHint);
-          playHint.addEventListener('click', (e) => {
-            e.stopPropagation();
-            videoElem.play().then(() => {
-              playHint.style.display = 'none';
-            }).catch(() => {});
+    function handleImageFallback() {
+      if (!mainImage) return;
+      // If image fails to load, switch to video fallback elegantly
+      if (mainImage.style.display !== 'none') {
+        mainImage.style.display = 'none';
+        if (fallbackVideo) {
+          fallbackVideo.style.display = 'block';
+          visualContainer.classList.add('has-video-fallback');
+          // Attempt to play fallback video
+          fallbackVideo.play().catch(err => {
+            // Autoplay blocked: show a clickable hint
+            if (!visualContainer.querySelector('.video-play-prompt')) {
+              const playHint = document.createElement('div');
+              playHint.className = 'visual-overlay-caption';
+              playHint.innerHTML = '🎥 click to play · kace jewelry in motion';
+              playHint.style.cursor = 'pointer';
+              playHint.style.bottom = 'auto';
+              playHint.style.top = '50%';
+              playHint.style.left = '50%';
+              playHint.style.transform = 'translate(-50%, -50%)';
+              playHint.style.background = 'rgba(0,0,0,0.65)';
+              playHint.style.backdropFilter = 'blur(10px)';
+              playHint.style.whiteSpace = 'nowrap';
+              playHint.style.padding = '8px 20px';
+              playHint.classList.add('video-play-prompt');
+              visualContainer.appendChild(playHint);
+              playHint.addEventListener('click', (e) => {
+                e.stopPropagation();
+                fallbackVideo.play().then(() => {
+                  playHint.style.display = 'none';
+                }).catch(() => {});
+              });
+              fallbackVideo.addEventListener('click', () => {
+                fallbackVideo.play().catch(() => {});
+              });
+            }
           });
-          videoElem.addEventListener('click', () => {
-            videoElem.play().catch(() => {});
+          // If video also errors
+          fallbackVideo.addEventListener('error', function() {
+            if (!visualContainer.querySelector('.ultimate-fallback-note')) {
+              const ultimateMsg = document.createElement('div');
+              ultimateMsg.className = 'visual-overlay-caption';
+              ultimateMsg.innerHTML = '✨ kace jewelry — "lace & light" editorial collection ✨';
+              ultimateMsg.style.background = 'rgba(45, 30, 22, 0.7)';
+              ultimateMsg.style.bottom = 'auto';
+              ultimateMsg.style.top = '50%';
+              ultimateMsg.style.left = '50%';
+              ultimateMsg.style.transform = 'translate(-50%, -50%)';
+              ultimateMsg.style.whiteSpace = 'nowrap';
+              ultimateMsg.classList.add('ultimate-fallback-note');
+              visualContainer.appendChild(ultimateMsg);
+            }
           });
         }
-      });
+        if (dynamicCaption) dynamicCaption.innerHTML = '🎬 kace jewelry · timeless elegance (visual story)';
+      }
     }
 
-    // ensure the visual container doesn't collapse if video takes time
-    const storyVisual = document.querySelector('.story-visual');
-    if (storyVisual && videoElem && videoElem.readyState === 0) {
-      storyVisual.style.minHeight = '320px';
+    // Set up image error handler and also if image loads correctly
+    if (mainImage) {
+      mainImage.onerror = handleImageFallback;
+      mainImage.onload = function() {
+        // Ensure video is hidden and image is properly displayed
+        if (fallbackVideo) {
+          fallbackVideo.style.display = 'none';
+          fallbackVideo.pause();
+        }
+        visualContainer.classList.remove('has-video-fallback');
+        if (dynamicCaption) dynamicCaption.innerHTML = '🖼️ kace jewelry · signature lace heirloom | art of thread & metal';
+      };
+      // Edge case: if image already failed before event binding
+      if (mainImage.complete && mainImage.naturalWidth === 0) {
+        handleImageFallback();
+      }
+    }
+
+    // Additional graceful enhancement: ensure visual container has proper min-height for smooth layout
+    const storyVis = document.querySelector('.story-visual');
+    if (storyVis && mainImage && mainImage.complete === false) {
+      storyVis.style.minHeight = '380px';
     }
   })();
 </script>
 </body>
 </html>
-
   
 
