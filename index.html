@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>kace jewelry  — Elegance Redefined</title>
+  <title>kace jewelry | Lace Jewelry — Elegance Redefined</title>
   <!-- Google Fonts & simple reset -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <style>
@@ -28,8 +28,8 @@
       padding: 0 32px;
     }
 
-    /* kace texture overlay (very subtle) */
-    lds production {
+    /* lace texture overlay (very subtle) */
+    .lace-bg {
       position: fixed;
       top: 0;
       left: 0;
@@ -166,7 +166,7 @@
       font-size: 0.8rem;
     }
 
-    /* brand story card with video */
+    /* brand story card with video - VIDEO ON THE RIGHT */
     .story-section {
       display: flex;
       flex-wrap: wrap;
@@ -181,7 +181,7 @@
       flex: 0.9;
       background: #f3ece5;
       border-radius: 48px;
-      min-height: 320px;
+      min-height: 340px;
       background-image: radial-gradient(circle at 30% 40%, rgba(180, 140, 108, 0.08) 2px, transparent 2px);
       background-size: 20px 20px;
       display: flex;
@@ -190,34 +190,38 @@
       position: relative;
       overflow: hidden;
       transition: all 0.3s ease;
-      box-shadow: 0 12px 28px -12px rgba(0,0,0,0.1);
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+      border: 1px solid rgba(220, 190, 160, 0.3);
     }
-    /* video container styling */
+    /* video container styling - full coverage with elegance */
     .story-visual video {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.4s ease;
+      transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      border-radius: 48px;
     }
     .story-visual:hover video {
       transform: scale(1.02);
     }
-    /* if video not supported or placeholder overlay */
+    /* elegant overlay caption for video context */
     .video-overlay-caption {
       position: absolute;
-      bottom: 16px;
-      left: 16px;
-      background: rgba(0,0,0,0.4);
-      backdrop-filter: blur(6px);
-      padding: 4px 12px;
+      bottom: 18px;
+      left: 18px;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(8px);
+      padding: 6px 16px;
       border-radius: 40px;
-      color: #fef3e8;
-      font-size: 0.7rem;
+      color: #fff2e6;
+      font-size: 0.75rem;
       letter-spacing: 0.5px;
       font-weight: 500;
       pointer-events: none;
-      z-index: 2;
+      z-index: 3;
+      font-family: 'Inter', monospace;
+      border-left: 2px solid #dbbd9f;
     }
     .story-text h2 {
       font-family: 'Playfair Display', serif;
@@ -225,6 +229,17 @@
       font-weight: 500;
       color: #b48c6c;
       margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+    .story-text h2:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background: #e4cdb9;
     }
     .story-text p {
       font-size: 1rem;
@@ -403,15 +418,16 @@
       padding: 12px 28px;
       border-radius: 60px;
       font-weight: 600;
-      color: solid black;
+      color: white;
       font-family: 'Inter', sans-serif;
       cursor: pointer;
       transition: 0.2s;
       font-size: 0.9rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
     button:hover {
       background: #9c6f4d;
-      transform: scale(0.97);
+      transform: translateY(-2px);
     }
 
     footer {
@@ -444,21 +460,28 @@
       }
       .story-visual {
         width: 100%;
-        min-height: 260px;
+        min-height: 280px;
+      }
+      .video-overlay-caption {
+        font-size: 0.65rem;
+        bottom: 12px;
+        left: 12px;
       }
     }
 
-    /* subtle loading / graceful fallback for video */
-    .story-visual .video-placeholder {
+    /* graceful loading hint */
+    .story-visual .video-placeholder-fallback {
       display: flex;
       align-items: center;
       justify-content: center;
       width: 100%;
       height: 100%;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       color: #b28b6b;
       background: #f5ede5;
       border-radius: 48px;
+      flex-direction: column;
+      gap: 12px;
     }
   </style>
 </head>
@@ -470,7 +493,7 @@
     <div class="logo-area">
       <div class="logo">
         <h1>kace jewelry</h1>
-        <p>kace jewelry · atelier</p>
+        <p>lace jewelry · atelier</p>
       </div>
       <div class="tagline-hero">
         <span>✦ innovation in every thread ✦</span>
@@ -489,14 +512,15 @@
       <p class="hero-desc">kace jewelry was created to bring innovation into the industry. We believe in quality, and by creating this brand we hope that it will bring more fashion — timeless, delicate, and brave.</p>
     </div>
 
-    <!-- Main quote from Winston Churchill -->
+    <!-- Main quote from Winston Churchill (inspirational) -->
     <div class="quote-block">
       <div class="quote-text">Success is not final, failure is not fatal. It is the courage to continue that counts.</div>
       <div class="quote-author">— Winston Churchill —</div>
       <div style="margin-top: 18px; font-size: 0.75rem; color:#bb9a7d;">the spirit that moves kace jewelry forward</div>
     </div>
 
-    <!-- Brand story: created april 17, 2026 by Salome Lwanzo & Michelle Javaid WITH VIDEO (kace jewelry.mp4) on the right side -->
+    <!-- Brand story: created april 17, 2026 by Salome Lwanzo & Michelle Javaid 
+         with VIDEO (kace jewelry.mp4) on the right side next to the birth story -->
     <div class="story-section">
       <div class="story-text">
         <h2>the birth of kace jewelry</h2>
@@ -505,12 +529,12 @@
         <div class="story-date">✦ founded april 17, 2026 · atelier: nairobi & london ✦</div>
       </div>
       <div class="story-visual">
-        <!-- VIDEO element: source points to "kace jewelry.mp4" (exact filename) -->
-        <video autoplay muted loop playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f3ece5'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23b48c6c' font-size='18' font-family='Inter'%3E✨ kace jewelry ✨%3C/text%3E%3C/svg%3E" style="width:100%; height:100%; object-fit: cover; border-radius: 48px;">
+        <!-- VIDEO element: source points to "kace jewelry.mp4" exact filename as requested -->
+        <video autoplay muted loop playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 340'%3E%3Crect width='400' height='340' fill='%23efe2d6'/%3E%3Ctext x='50%25' y='45%25' dominant-baseline='middle' text-anchor='middle' fill='%23b48c6c' font-size='19' font-family='Playfair Display' font-weight='500'%3E✨ kace jewelry ✨%3C/text%3E%3Ctext x='50%25' y='65%25' dominant-baseline='middle' text-anchor='middle' fill='%239c7a60' font-size='13' font-family='Inter'%3Elace in motion%3C/text%3E%3C/svg%3E" style="width:100%; height:100%; object-fit: cover; border-radius: 48px;">
           <source src="kace jewelry.mp4" type="video/mp4">
-          Your browser does not support the video tag, but you can still experience the elegance of kace jewelry through our collection.
+          Your browser does not support the video tag. Discover the elegance of kace jewelry through our collection and story.
         </video>
-        <div class="video-overlay-caption">🎬 kace jewelry · lace motifs in motion</div>
+        <div class="video-overlay-caption">🎬 kace jewelry · lace motifs in motion | original film</div>
       </div>
     </div>
 
@@ -539,7 +563,7 @@
       <div class="author">Winston Churchill · guiding mantra of kace jewelry</div>
     </div>
 
-    <!-- Contact & support section with updated emails -->
+    <!-- Contact & support section with emails -->
     <div class="contact-section" id="contact">
       <div class="contact-grid">
         <div class="contact-info">
@@ -595,10 +619,9 @@
   </div>
 </footer>
 
-<!-- simple interactive alert + video fallback detection (non-intrusive) -->
 <script>
   (function() {
-    // form submission simulation
+    // form submission simulation with elegance
     const sendBtn = document.getElementById('sendMsgBtn');
     if (sendBtn) {
       sendBtn.addEventListener('click', function(e) {
@@ -614,17 +637,17 @@
           return;
         }
         if (!emailVal.includes('@') || !emailVal.includes('.')) {
-          alert('✧ Please provide a valid email address so we can reply. ✧');
+          alert('✧ Please provide a valid email address so we can reply with grace. ✧');
           return;
         }
-        alert(`✨ Thank you ${nameVal}!\nYour message has been sent to the kace jewelry team.\nWe'll answer within 24h at ${emailVal}. ✨`);
+        alert(`✨ Thank you ${nameVal}!\nYour message has been received by the kace jewelry atelier.\nWe'll answer within 24h at ${emailVal}. ✨`);
         nameInput.value = '';
         emailInput.value = '';
         msgInput.value = '';
       });
     }
 
-    // subtle hover animations for value cards
+    // subtle hover interaction for value cards
     const cards = document.querySelectorAll('.value-card');
     cards.forEach(card => {
       card.addEventListener('mouseenter', () => {
@@ -632,51 +655,63 @@
       });
     });
 
-    // Optional: Check if video element can autoplay and handle any loading gracefully
-    // Also ensure video is properly displayed and has muted autoplay attribute already.
+    // VIDEO HANDLING: kace jewelry.mp4 on the right of the birth section
     const videoElem = document.querySelector('.story-visual video');
     if (videoElem) {
-      // If video fails to load due to missing file, we don't break layout.
-      videoElem.addEventListener('error', function(e) {
-        // fallback: keep a graceful visual, but no intrusive alert
+      // graceful error handling if video fails to load (file missing or network issue)
+      videoElem.addEventListener('error', function() {
         const parentDiv = videoElem.closest('.story-visual');
-        if (parentDiv && !parentDiv.querySelector('.fallback-note')) {
-          const fallbackMsg = document.createElement('div');
-          fallbackMsg.className = 'video-overlay-caption';
-          fallbackMsg.style.bottom = 'auto';
-          fallbackMsg.style.top = '50%';
-          fallbackMsg.style.transform = 'translateY(-50%)';
-          fallbackMsg.style.background = 'rgba(0,0,0,0.5)';
-          fallbackMsg.style.padding = '8px 16px';
-          fallbackMsg.style.fontSize = '0.85rem';
-          fallbackMsg.style.width = '80%';
-          fallbackMsg.style.textAlign = 'center';
-          fallbackMsg.innerHTML = '🎬 kace jewelry visual — the elegance frame (video asset could be added)';
+        if (parentDiv && !parentDiv.querySelector('.custom-fallback-marker')) {
+          // remove any existing overlays but add a graceful design note
+          const fallbackDiv = document.createElement('div');
+          fallbackDiv.className = 'video-overlay-caption';
+          fallbackDiv.style.background = 'rgba(30, 20, 15, 0.6)';
+          fallbackDiv.style.backdropFilter = 'blur(8px)';
+          fallbackDiv.style.width = 'auto';
+          fallbackDiv.style.top = '50%';
+          fallbackDiv.style.left = '50%';
+          fallbackDiv.style.transform = 'translate(-50%, -50%)';
+          fallbackDiv.style.bottom = 'auto';
+          fallbackDiv.style.right = 'auto';
+          fallbackDiv.style.padding = '10px 20px';
+          fallbackDiv.style.fontSize = '0.85rem';
+          fallbackDiv.style.whiteSpace = 'nowrap';
+          fallbackDiv.innerHTML = '🎞️ kace jewelry — visual poem (add "kace jewelry.mp4" to showcase)';
+          fallbackDiv.style.pointerEvents = 'none';
+          fallbackDiv.classList.add('custom-fallback-marker');
           parentDiv.style.position = 'relative';
-          parentDiv.appendChild(fallbackMsg);
-          // also ensure video background style
-          videoElem.style.opacity = '0.6';
+          parentDiv.appendChild(fallbackDiv);
+          videoElem.style.opacity = '0.4';
+          videoElem.style.filter = 'grayscale(0.2)';
         }
       });
-      // Force play if autoplay is blocked by browser policies (some browsers restrict)
+
+      // attempt autoplay with mute policy, and if blocked provide user hint
       videoElem.play().catch(err => {
-        // autoplay prevented, but it's okay, we add a small note but not break experience
-        const containerNote = document.createElement('div');
-        containerNote.className = 'video-overlay-caption';
-        containerNote.style.background = 'rgba(0,0,0,0.45)';
-        containerNote.innerHTML = '▶️ click to play · lace jewelry in motion';
-        containerNote.style.cursor = 'pointer';
+        // Autoplay was prevented — show subtle click hint to respect user experience
         const parentVis = videoElem.closest('.story-visual');
-        if (parentVis && !parentVis.querySelector('.click-play-hint')) {
-          containerNote.classList.add('click-play-hint');
-          parentVis.appendChild(containerNote);
-          containerNote.addEventListener('click', (e) => {
+        if (parentVis && !parentVis.querySelector('.click-overlay-hint')) {
+          const playHint = document.createElement('div');
+          playHint.className = 'video-overlay-caption';
+          playHint.innerHTML = '🎥 click to play · lace jewelry in motion';
+          playHint.style.cursor = 'pointer';
+          playHint.style.bottom = 'auto';
+          playHint.style.top = '50%';
+          playHint.style.left = '50%';
+          playHint.style.transform = 'translate(-50%, -50%)';
+          playHint.style.background = 'rgba(0,0,0,0.6)';
+          playHint.style.backdropFilter = 'blur(8px)';
+          playHint.style.padding = '8px 18px';
+          playHint.style.fontSize = '0.8rem';
+          playHint.style.whiteSpace = 'nowrap';
+          playHint.classList.add('click-overlay-hint');
+          parentVis.appendChild(playHint);
+          playHint.addEventListener('click', (e) => {
             e.stopPropagation();
             videoElem.play().then(() => {
-              if (containerNote) containerNote.style.display = 'none';
+              playHint.style.display = 'none';
             }).catch(() => {});
           });
-          // also if user taps video directly
           videoElem.addEventListener('click', () => {
             videoElem.play().catch(() => {});
           });
@@ -684,15 +719,15 @@
       });
     }
 
-    // small additional: if the video source path may be missing, show an elegant brand placeholder
-    // we already handle error event, but also ensure the container style doesn't collapse
+    // ensure the visual container doesn't collapse if video takes time
     const storyVisual = document.querySelector('.story-visual');
     if (storyVisual && videoElem && videoElem.readyState === 0) {
-      // just to guarantee layout is consistent
-      storyVisual.style.minHeight = '300px';
+      storyVisual.style.minHeight = '320px';
     }
   })();
 </script>
 </body>
 </html>
+
+  
 
