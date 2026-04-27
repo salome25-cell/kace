@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>kace jewelry | Lace Jewelry — Elegance Redefined</title>
+  <title>kace jewelry  — Elegance Redefined</title>
   <!-- Google Fonts & simple reset -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <style>
@@ -28,8 +28,8 @@
       padding: 0 32px;
     }
 
-    /* lace texture overlay (very subtle) */
-    .lace-bg {
+    /* kace texture overlay (very subtle) */
+    lds production {
       position: fixed;
       top: 0;
       left: 0;
@@ -166,7 +166,7 @@
       font-size: 0.8rem;
     }
 
-    /* brand story card */
+    /* brand story card with video */
     .story-section {
       display: flex;
       flex-wrap: wrap;
@@ -181,7 +181,7 @@
       flex: 0.9;
       background: #f3ece5;
       border-radius: 48px;
-      min-height: 280px;
+      min-height: 320px;
       background-image: radial-gradient(circle at 30% 40%, rgba(180, 140, 108, 0.08) 2px, transparent 2px);
       background-size: 20px 20px;
       display: flex;
@@ -189,15 +189,35 @@
       justify-content: center;
       position: relative;
       overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 12px 28px -12px rgba(0,0,0,0.1);
     }
-    .story-visual .lace-icon {
-      font-size: 9rem;
-      opacity: 0.5;
-      transition: 0.3s;
+    /* video container styling */
+    .story-visual video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
     }
-    .story-visual:hover .lace-icon {
-      opacity: 0.8;
+    .story-visual:hover video {
       transform: scale(1.02);
+    }
+    /* if video not supported or placeholder overlay */
+    .video-overlay-caption {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(6px);
+      padding: 4px 12px;
+      border-radius: 40px;
+      color: #fef3e8;
+      font-size: 0.7rem;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+      pointer-events: none;
+      z-index: 2;
     }
     .story-text h2 {
       font-family: 'Playfair Display', serif;
@@ -383,7 +403,7 @@
       padding: 12px 28px;
       border-radius: 60px;
       font-weight: 600;
-      color: white;
+      color: solid black;
       font-family: 'Inter', sans-serif;
       cursor: pointer;
       transition: 0.2s;
@@ -422,6 +442,23 @@
         flex-direction: column;
         align-items: flex-start;
       }
+      .story-visual {
+        width: 100%;
+        min-height: 260px;
+      }
+    }
+
+    /* subtle loading / graceful fallback for video */
+    .story-visual .video-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      font-size: 1.4rem;
+      color: #b28b6b;
+      background: #f5ede5;
+      border-radius: 48px;
     }
   </style>
 </head>
@@ -433,7 +470,7 @@
     <div class="logo-area">
       <div class="logo">
         <h1>kace jewelry</h1>
-        <p>lace jewelry · atelier</p>
+        <p>kace jewelry · atelier</p>
       </div>
       <div class="tagline-hero">
         <span>✦ innovation in every thread ✦</span>
@@ -452,14 +489,14 @@
       <p class="hero-desc">kace jewelry was created to bring innovation into the industry. We believe in quality, and by creating this brand we hope that it will bring more fashion — timeless, delicate, and brave.</p>
     </div>
 
-    <!-- Main quote from Winston Churchill (first occurrence in brief) -->
+    <!-- Main quote from Winston Churchill -->
     <div class="quote-block">
       <div class="quote-text">Success is not final, failure is not fatal. It is the courage to continue that counts.</div>
       <div class="quote-author">— Winston Churchill —</div>
       <div style="margin-top: 18px; font-size: 0.75rem; color:#bb9a7d;">the spirit that moves kace jewelry forward</div>
     </div>
 
-    <!-- Brand story: created april 17, 2026 by Salome Lwanzo & Michelle Javaid -->
+    <!-- Brand story: created april 17, 2026 by Salome Lwanzo & Michelle Javaid WITH VIDEO (kace jewelry.mp4) on the right side -->
     <div class="story-section">
       <div class="story-text">
         <h2>the birth of kace jewelry</h2>
@@ -468,7 +505,12 @@
         <div class="story-date">✦ founded april 17, 2026 · atelier: nairobi & london ✦</div>
       </div>
       <div class="story-visual">
-        <div class="lace-icon">🪢💎✨</div>
+        <!-- VIDEO element: source points to "kace jewelry.mp4" (exact filename) -->
+        <video autoplay muted loop playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f3ece5'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23b48c6c' font-size='18' font-family='Inter'%3E✨ kace jewelry ✨%3C/text%3E%3C/svg%3E" style="width:100%; height:100%; object-fit: cover; border-radius: 48px;">
+          <source src="kace jewelry.mp4" type="video/mp4">
+          Your browser does not support the video tag, but you can still experience the elegance of kace jewelry through our collection.
+        </video>
+        <div class="video-overlay-caption">🎬 kace jewelry · lace motifs in motion</div>
       </div>
     </div>
 
@@ -553,10 +595,10 @@
   </div>
 </footer>
 
-<!-- simple interactive alert (non-intrusive) -->
+<!-- simple interactive alert + video fallback detection (non-intrusive) -->
 <script>
   (function() {
-    // form submission simulation (no actual backend, shows polite message)
+    // form submission simulation
     const sendBtn = document.getElementById('sendMsgBtn');
     if (sendBtn) {
       sendBtn.addEventListener('click', function(e) {
@@ -575,22 +617,80 @@
           alert('✧ Please provide a valid email address so we can reply. ✧');
           return;
         }
-        // success simulation
         alert(`✨ Thank you ${nameVal}!\nYour message has been sent to the kace jewelry team.\nWe'll answer within 24h at ${emailVal}. ✨`);
-        // optional clear fields
         nameInput.value = '';
         emailInput.value = '';
         msgInput.value = '';
       });
     }
 
-    // subtle hover animations for value cards, just for delight
+    // subtle hover animations for value cards
     const cards = document.querySelectorAll('.value-card');
     cards.forEach(card => {
       card.addEventListener('mouseenter', () => {
         card.style.transition = 'all 0.2s ease';
       });
     });
+
+    // Optional: Check if video element can autoplay and handle any loading gracefully
+    // Also ensure video is properly displayed and has muted autoplay attribute already.
+    const videoElem = document.querySelector('.story-visual video');
+    if (videoElem) {
+      // If video fails to load due to missing file, we don't break layout.
+      videoElem.addEventListener('error', function(e) {
+        // fallback: keep a graceful visual, but no intrusive alert
+        const parentDiv = videoElem.closest('.story-visual');
+        if (parentDiv && !parentDiv.querySelector('.fallback-note')) {
+          const fallbackMsg = document.createElement('div');
+          fallbackMsg.className = 'video-overlay-caption';
+          fallbackMsg.style.bottom = 'auto';
+          fallbackMsg.style.top = '50%';
+          fallbackMsg.style.transform = 'translateY(-50%)';
+          fallbackMsg.style.background = 'rgba(0,0,0,0.5)';
+          fallbackMsg.style.padding = '8px 16px';
+          fallbackMsg.style.fontSize = '0.85rem';
+          fallbackMsg.style.width = '80%';
+          fallbackMsg.style.textAlign = 'center';
+          fallbackMsg.innerHTML = '🎬 kace jewelry visual — the elegance frame (video asset could be added)';
+          parentDiv.style.position = 'relative';
+          parentDiv.appendChild(fallbackMsg);
+          // also ensure video background style
+          videoElem.style.opacity = '0.6';
+        }
+      });
+      // Force play if autoplay is blocked by browser policies (some browsers restrict)
+      videoElem.play().catch(err => {
+        // autoplay prevented, but it's okay, we add a small note but not break experience
+        const containerNote = document.createElement('div');
+        containerNote.className = 'video-overlay-caption';
+        containerNote.style.background = 'rgba(0,0,0,0.45)';
+        containerNote.innerHTML = '▶️ click to play · lace jewelry in motion';
+        containerNote.style.cursor = 'pointer';
+        const parentVis = videoElem.closest('.story-visual');
+        if (parentVis && !parentVis.querySelector('.click-play-hint')) {
+          containerNote.classList.add('click-play-hint');
+          parentVis.appendChild(containerNote);
+          containerNote.addEventListener('click', (e) => {
+            e.stopPropagation();
+            videoElem.play().then(() => {
+              if (containerNote) containerNote.style.display = 'none';
+            }).catch(() => {});
+          });
+          // also if user taps video directly
+          videoElem.addEventListener('click', () => {
+            videoElem.play().catch(() => {});
+          });
+        }
+      });
+    }
+
+    // small additional: if the video source path may be missing, show an elegant brand placeholder
+    // we already handle error event, but also ensure the container style doesn't collapse
+    const storyVisual = document.querySelector('.story-visual');
+    if (storyVisual && videoElem && videoElem.readyState === 0) {
+      // just to guarantee layout is consistent
+      storyVisual.style.minHeight = '300px';
+    }
   })();
 </script>
 </body>
