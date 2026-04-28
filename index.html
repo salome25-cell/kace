@@ -166,7 +166,7 @@
       font-size: 0.8rem;
     }
 
-    /* MAIN TWO-COLUMN LAYOUT: story (left) + lace jewelry (6) box (right) */
+    /* MAIN TWO-COLUMN LAYOUT: story (left) + kace jewelry (6) box (right) */
     .story-lace-row {
       display: flex;
       flex-wrap: wrap;
@@ -177,8 +177,8 @@
     .story-column {
       flex: 1.2;
     }
-    /* right side: lace jewelry (6) specific box */
-    .lace-box {
+    /* right side: kace jewelry box (6) - name changed from lace jewelry to kace jewelry */
+    .kace-jewelry-box {
       flex: 0.9;
       background: #fffbf7;
       border-radius: 48px;
@@ -187,7 +187,7 @@
       box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.06);
       transition: all 0.2s ease;
     }
-    .lace-box h3 {
+    .kace-jewelry-box h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.9rem;
       font-weight: 500;
@@ -505,7 +505,7 @@
       .story-lace-row {
         flex-direction: column;
       }
-      .lace-box {
+      .kace-jewelry-box {
         order: 2;
       }
       .story-column {
@@ -570,7 +570,7 @@
       <div style="margin-top: 18px; font-size: 0.75rem; color:#bb9a7d;">the spirit that moves kace jewelry forward</div>
     </div>
 
-    <!-- TWO COLUMN SECTION: LEFT = birth of kace jewelry, RIGHT = Lace Jewelry (6) box -->
+    <!-- TWO COLUMN SECTION: LEFT = birth of kace jewelry, RIGHT = kace jewelry (6) box (name changed from "lace jewelry" to "kace jewelry") -->
     <div class="story-lace-row">
       <!-- left column: brand story -->
       <div class="story-column">
@@ -583,15 +583,15 @@
         </div>
       </div>
 
-      <!-- RIGHT column: Lace Jewelry (6) box — exactly 6 pieces with count badge -->
-      <div class="lace-box">
+      <!-- RIGHT column: KACE JEWELRY (6) box - name explicitly changed to "kace jewelry" with count (6) -->
+      <div class="kace-jewelry-box">
         <h3>
-          lace jewelry 
+          kace jewelry 
           <span class="badge-count">(6)</span>
         </h3>
         <div class="lace-sub">— signature capsule · woven in elegance —</div>
         <div class="lace-grid-6">
-          <!-- six distinct jewelry pieces with lace identity -->
+          <!-- six distinct jewelry pieces, all part of kace jewelry collection -->
           <div class="piece-card">
             <div class="piece-emoji">🌿✨</div>
             <h4>Lace Petal Choker</h4>
@@ -744,12 +744,12 @@
       });
     }
 
-    // subtle interactive effect for lace pieces
+    // subtle interactive effect for kace jewelry pieces
     const pieces = document.querySelectorAll('.piece-card');
     pieces.forEach(card => {
       card.addEventListener('click', () => {
         const title = card.querySelector('h4')?.innerText;
-        if(title) console.log(`🔖 kace jewelry: ${title} — a lace masterpiece.`);
+        if(title) console.log(`🔖 kace jewelry: ${title} — a masterpiece from our collection.`);
       });
     });
   })();
