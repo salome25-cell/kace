@@ -166,142 +166,126 @@
       font-size: 0.8rem;
     }
 
-    /* NEW: Two-column layout for story + lace jewelry gallery (right side) */
-    .story-lace-wrapper {
+    /* MAIN TWO-COLUMN LAYOUT: story (left) + lace jewelry (6) box (right) */
+    .story-lace-row {
       display: flex;
       flex-wrap: wrap;
       gap: 48px;
       align-items: stretch;
       margin: 56px 0;
     }
-    .story-text-main {
+    .story-column {
       flex: 1.2;
     }
-    /* gallery section on the right — lace jewelry (6) */
-    .lace-gallery-side {
+    /* right side: lace jewelry (6) specific box */
+    .lace-box {
       flex: 0.9;
       background: #fffbf7;
       border-radius: 48px;
-      padding: 28px 24px;
+      padding: 28px 26px;
       border: 1px solid #f0e0d2;
-      box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.06);
       transition: all 0.2s ease;
     }
-    .lace-gallery-side h3 {
+    .lace-box h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       font-weight: 500;
       color: #b48c6c;
-      margin-bottom: 8px;
-      letter-spacing: -0.3px;
+      margin-bottom: 6px;
       display: flex;
-      align-items: center;
-      gap: 10px;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
       border-bottom: 2px solid #f0dfd0;
-      padding-bottom: 12px;
+      padding-bottom: 14px;
     }
-    .gallery-badge {
+    .badge-count {
       font-size: 0.8rem;
       background: #f2e5db;
-      padding: 4px 12px;
-      border-radius: 40px;
-      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 60px;
       font-family: 'Inter', sans-serif;
+      font-weight: 500;
       color: #9b7457;
     }
-    .lace-items-grid {
+    .lace-sub {
+      font-size: 0.8rem;
+      color: #9b7c63;
+      margin-top: 8px;
+      margin-bottom: 20px;
+      letter-spacing: 0.2px;
+    }
+    .lace-grid-6 {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
-      margin: 24px 0 8px;
+      margin: 16px 0 10px;
     }
-    .lace-card {
+    .piece-card {
       background: white;
-      border-radius: 28px;
+      border-radius: 32px;
       padding: 18px 12px;
       text-align: center;
       transition: all 0.25s ease;
       border: 1px solid #f4e6dc;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
     }
-    .lace-card:hover {
+    .piece-card:hover {
       transform: translateY(-5px);
       border-color: #e2cdbb;
-      box-shadow: 0 16px 24px -12px rgba(70, 40, 20, 0.12);
+      box-shadow: 0 18px 28px -12px rgba(70, 40, 20, 0.12);
       background: #ffffff;
     }
-    .lace-icon-emblem {
-      font-size: 2.5rem;
+    .piece-emoji {
+      font-size: 2.4rem;
       margin-bottom: 12px;
       display: inline-block;
     }
-    .lace-card h4 {
-      font-weight: 600;
+    .piece-card h4 {
+      font-weight: 700;
       font-size: 1rem;
       color: #4d3523;
       letter-spacing: -0.2px;
       margin-bottom: 6px;
     }
-    .lace-card p {
-      font-size: 0.75rem;
+    .piece-card p {
+      font-size: 0.72rem;
       color: #9b7b64;
       line-height: 1.3;
     }
-    .lace-price {
+    .piece-price {
       margin-top: 10px;
       font-weight: 600;
       color: #b48c6c;
       font-size: 0.85rem;
-      letter-spacing: 0.3px;
     }
-    .view-all-link {
+    .explore-link {
       margin-top: 24px;
       text-align: right;
       font-size: 0.8rem;
       font-weight: 500;
     }
-    .view-all-link a {
+    .explore-link a {
       color: #b48c6c;
       text-decoration: none;
       border-bottom: 1px dashed #d4bcab;
       transition: 0.2s;
     }
-    .view-all-link a:hover {
+    .explore-link a:hover {
       color: #8f684b;
       border-bottom-color: #b48c6c;
     }
 
-    /* original story-visual but we keep it inside story-text-main as optional decorative */
-    .story-visual {
-      background: #f3ece5;
-      border-radius: 48px;
-      min-height: 200px;
-      background-image: radial-gradient(circle at 30% 40%, rgba(180, 140, 108, 0.08) 2px, transparent 2px);
-      background-size: 20px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 28px;
-      position: relative;
-      overflow: hidden;
-    }
-    .story-visual .lace-icon {
-      font-size: 5rem;
-      opacity: 0.6;
-      transition: 0.3s;
-    }
-    .story-visual:hover .lace-icon {
-      opacity: 0.9;
-      transform: scale(1.02);
-    }
-    .story-text-main h2 {
+    /* story column styling */
+    .story-column h2 {
       font-family: 'Playfair Display', serif;
       font-size: 2.2rem;
       font-weight: 500;
       color: #b48c6c;
       margin-bottom: 20px;
     }
-    .story-text-main p {
+    .story-column p {
       font-size: 1rem;
       line-height: 1.6;
       margin-bottom: 20px;
@@ -316,8 +300,29 @@
       padding-top: 16px;
       display: inline-block;
     }
+    .visual-lace-mini {
+      background: #f3ece5;
+      border-radius: 48px;
+      min-height: 180px;
+      background-image: radial-gradient(circle at 30% 40%, rgba(180, 140, 108, 0.08) 2px, transparent 2px);
+      background-size: 20px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 28px;
+      overflow: hidden;
+    }
+    .visual-lace-mini .lace-icon {
+      font-size: 5rem;
+      opacity: 0.55;
+      transition: 0.3s;
+    }
+    .visual-lace-mini:hover .lace-icon {
+      opacity: 0.85;
+      transform: scale(1.02);
+    }
 
-    /* inspiration + values */
+    /* values grid */
     .values-grid {
       display: flex;
       gap: 32px;
@@ -356,7 +361,7 @@
       line-height: 1.5;
     }
 
-    /* second quote (Churchill) */
+    /* quote mini */
     .quote-mini {
       background: linear-gradient(135deg, #fff6ef, #fffbf7);
       border-radius: 28px;
@@ -381,7 +386,6 @@
     /* contact section */
     .contact-section {
       background: #ffffffdd;
-      backdrop-filter: blur(0px);
       border-radius: 40px;
       padding: 48px 40px;
       margin: 60px 0 70px;
@@ -498,17 +502,22 @@
     }
 
     @media (max-width: 860px) {
-      .story-lace-wrapper {
+      .story-lace-row {
         flex-direction: column;
       }
-      .lace-gallery-side {
+      .lace-box {
         order: 2;
       }
-      .story-text-main {
+      .story-column {
         order: 1;
       }
-      .lace-items-grid {
+      .lace-grid-6 {
         grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 640px) {
+      .lace-grid-6 {
+        grid-template-columns: 1fr;
       }
     }
     @media (max-width: 780px) {
@@ -523,10 +532,6 @@
       }
       .contact-grid {
         flex-direction: column;
-      }
-      .logo-area {
-        flex-direction: column;
-        align-items: flex-start;
       }
     }
   </style>
@@ -551,85 +556,86 @@
 
 <main>
   <div class="container">
-    <!-- Hero / brand mission -->
+    <!-- Hero section -->
     <div class="hero">
       <div class="hero-badge">✨ new era of elegance ✨</div>
       <h1 class="hero-title">lace jewelry, <i>reimagined</i><br>for the modern soul</h1>
       <p class="hero-desc">kace jewelry was created to bring innovation into the industry. We believe in quality, and by creating this brand we hope that it will bring more fashion — timeless, delicate, and brave.</p>
     </div>
 
-    <!-- Main quote from Winston Churchill -->
+    <!-- Main Quote: Churchill -->
     <div class="quote-block">
       <div class="quote-text">Success is not final, failure is not fatal. It is the courage to continue that counts.</div>
       <div class="quote-author">— Winston Churchill —</div>
       <div style="margin-top: 18px; font-size: 0.75rem; color:#bb9a7d;">the spirit that moves kace jewelry forward</div>
     </div>
 
-    <!-- NEW TWO-COLUMN LAYOUT: Brand story (left) + Lace Jewelry (6) gallery (right) -->
-    <div class="story-lace-wrapper">
-      <!-- left column: brand story & visual -->
-      <div class="story-text-main">
+    <!-- TWO COLUMN SECTION: LEFT = birth of kace jewelry, RIGHT = Lace Jewelry (6) box -->
+    <div class="story-lace-row">
+      <!-- left column: brand story -->
+      <div class="story-column">
         <h2>the birth of kace jewelry</h2>
         <p><strong>kace jewelry</strong> was created on the 17th of April, 2026, by <strong>Salome Lwanzo</strong> with the invaluable collaboration of <strong>Michelle Javaid</strong>. What began as a spark — an advertisement that caught Salome's eye — evolved into a bold, beautiful movement. Inspired by the interplay of light and lace texture, Salome decided to make a new move and craft a brand where artistry meets durability.</p>
         <p>Every piece of kace jewelry is designed for those who see fashion as an extension of personality. From delicate chainmail-like lace motifs to soft metallic weaves, the brand redefines jewelry as second skin. Our mission is to fuse craftsmanship with modern vision — because beauty should never be fragile, but resilient.</p>
         <div class="story-date">✦ founded april 17, 2026 · atelier: nairobi & london ✦</div>
-        <div class="story-visual">
+        <div class="visual-lace-mini">
           <div class="lace-icon">🪢💎✨</div>
         </div>
       </div>
 
-      <!-- RIGHT COLUMN: Lace Jewelry (6) curated pieces gallery -->
-      <div class="lace-gallery-side">
+      <!-- RIGHT column: Lace Jewelry (6) box — exactly 6 pieces with count badge -->
+      <div class="lace-box">
         <h3>
-          lace jewelry <span class="gallery-badge">limited capsule</span>
+          lace jewelry 
+          <span class="badge-count">(6)</span>
         </h3>
-        <p style="font-size: 0.85rem; margin-top: 8px; color: #7f6248;">six signature pieces — where lace whispers & metals shine</p>
-        <div class="lace-items-grid">
-          <!-- 6 distinct lace jewelry items -->
-          <div class="lace-card">
-            <div class="lace-icon-emblem">🌿✨</div>
+        <div class="lace-sub">— signature capsule · woven in elegance —</div>
+        <div class="lace-grid-6">
+          <!-- six distinct jewelry pieces with lace identity -->
+          <div class="piece-card">
+            <div class="piece-emoji">🌿✨</div>
             <h4>Lace Petal Choker</h4>
-            <p>Delicate silver mesh, hand-linked lace motif</p>
-            <div class="lace-price">$285</div>
+            <p>Silver mesh, hand-linked lace motif</p>
+            <div class="piece-price">$285</div>
           </div>
-          <div class="lace-card">
-            <div class="lace-icon-emblem">🪢🌙</div>
+          <div class="piece-card">
+            <div class="piece-emoji">🪢🌙</div>
             <h4>Nocturnal Lace Cuff</h4>
-            <p>Oxidized brass with woven lace overlay</p>
-            <div class="lace-price">$342</div>
+            <p>Oxidized brass & woven lace overlay</p>
+            <div class="piece-price">$342</div>
           </div>
-          <div class="lace-card">
-            <div class="lace-icon-emblem">🌸💎</div>
+          <div class="piece-card">
+            <div class="piece-emoji">🌸💎</div>
             <h4>Florilege Earrings</h4>
-            <p>Diamond-cut lace drops · 18k gold finish</p>
-            <div class="lace-price">$478</div>
+            <p>Diamond-cut lace drops · 18k gold</p>
+            <div class="piece-price">$478</div>
           </div>
-          <div class="lace-card">
-            <div class="lace-icon-emblem">🕯️🤍</div>
+          <div class="piece-card">
+            <div class="piece-emoji">🕯️🤍</div>
             <h4>Ivory Lace Ring</h4>
-            <p>Openwork band inspired by antique lace patterns</p>
-            <div class="lace-price">$199</div>
+            <p>Open band, antique lace patterns</p>
+            <div class="piece-price">$199</div>
           </div>
-          <div class="lace-card">
-            <div class="lace-icon-emblem">🪶✨</div>
+          <div class="piece-card">
+            <div class="piece-emoji">🪶✨</div>
             <h4>Feather-Lace Necklace</h4>
-            <p>Lightweight chainmail & lace fusion</p>
-            <div class="lace-price">$520</div>
+            <p>Chainmail & lace fusion, lightweight</p>
+            <div class="piece-price">$520</div>
           </div>
-          <div class="lace-card">
-            <div class="lace-icon-emblem">🍂🌙</div>
+          <div class="piece-card">
+            <div class="piece-emoji">🍂🌙</div>
             <h4>Celestial Lace Bangle</h4>
-            <p>Engraved celestial lace texture · adjustable fit</p>
-            <div class="lace-price">$267</div>
+            <p>Engraved celestial lace · adjustable</p>
+            <div class="piece-price">$267</div>
           </div>
         </div>
-        <div class="view-all-link">
-          <a href="#">view complete lace collection →</a>
+        <div class="explore-link">
+          <a href="#">view all six pieces →</a>
         </div>
       </div>
     </div>
 
-    <!-- pillars / core values inspired by innovation + quality -->
+    <!-- values grid (innovation, quality, fashion forward) -->
     <div class="values-grid">
       <div class="value-card">
         <div class="value-icon">🕊️</div>
@@ -648,13 +654,13 @@
       </div>
     </div>
 
-    <!-- second quote (Churchill repeated with reverence) -->
+    <!-- second quote (Churchill again) -->
     <div class="quote-mini">
       <p>“Success is not final, failure is not fatal. It is the courage to continue that counts.”</p>
       <div class="author">Winston Churchill · guiding mantra of kace jewelry</div>
     </div>
 
-    <!-- Contact & support section with updated emails -->
+    <!-- Contact section with updated details -->
     <div class="contact-section" id="contact">
       <div class="contact-grid">
         <div class="contact-info">
@@ -710,10 +716,9 @@
   </div>
 </footer>
 
-<!-- simple interactive alert + gallery delight -->
 <script>
   (function() {
-    // form submission simulation
+    // contact form handling
     const sendBtn = document.getElementById('sendMsgBtn');
     if (sendBtn) {
       sendBtn.addEventListener('click', function(e) {
@@ -739,23 +744,12 @@
       });
     }
 
-    // subtle hover effects for value cards and gallery items
-    const cards = document.querySelectorAll('.value-card');
-    cards.forEach(card => {
-      card.addEventListener('mouseenter', () => {
-        card.style.transition = 'all 0.2s ease';
-      });
-    });
-
-    // extra: interactive logging for lace gallery just for elegance
-    const laceCards = document.querySelectorAll('.lace-card');
-    laceCards.forEach(card => {
+    // subtle interactive effect for lace pieces
+    const pieces = document.querySelectorAll('.piece-card');
+    pieces.forEach(card => {
       card.addEventListener('click', () => {
-        const titleElem = card.querySelector('h4');
-        if(titleElem) {
-          console.log(`✨ kace jewelry: you explored ${titleElem.innerText} ✨`);
-          // subtle feedback without being intrusive
-        }
+        const title = card.querySelector('h4')?.innerText;
+        if(title) console.log(`🔖 kace jewelry: ${title} — a lace masterpiece.`);
       });
     });
   })();
