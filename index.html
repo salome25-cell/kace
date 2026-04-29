@@ -217,17 +217,25 @@
       font-weight: 500;
       color: #1e4a6b;
     }
-    /* New image style inside the box */
-    .lace-image {
-      width: 100%;
-      border-radius: 28px;
+    /* Image container for two images side by side */
+    .image-row {
+      display: flex;
+      gap: 12px;
       margin: 16px 0 12px;
+      flex-wrap: wrap;
+    }
+    .box-image {
+      flex: 1;
+      min-width: 120px;
+      border-radius: 24px;
       box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
       transition: transform 0.2s ease;
-      display: block;
+      object-fit: cover;
+      max-height: 160px;
+      width: 100%;
     }
-    .lace-image:hover {
-      transform: scale(1.01);
+    .box-image:hover {
+      transform: scale(1.02);
     }
     .lace-sub {
       font-size: 0.8rem;
@@ -550,6 +558,12 @@
       .lace-grid-6 {
         grid-template-columns: repeat(2, 1fr);
       }
+      .image-row {
+        flex-direction: column;
+      }
+      .box-image {
+        max-height: 200px;
+      }
     }
     @media (max-width: 640px) {
       .lace-grid-6 {
@@ -606,7 +620,7 @@
       <div style="margin-top: 18px; font-size: 0.75rem; color:#2c5a7a;">the spirit that moves kace jewelry forward</div>
     </div>
 
-    <!-- TWO COLUMN SECTION: LEFT = birth of kace jewelry, RIGHT = kace jewelry (6) box with added PNG image -->
+    <!-- TWO COLUMN SECTION: LEFT = birth of kace jewelry, RIGHT = kace jewelry (6) box with images -->
     <div class="story-lace-row">
       <!-- left column: brand story -->
       <div class="story-column">
@@ -619,14 +633,17 @@
         </div>
       </div>
 
-      <!-- RIGHT column: KACE JEWELRY (6) box with added lacejewelry(6).png image -->
+      <!-- RIGHT column: KACE JEWELRY (6) box with added lacejewelry(6).png AND kace jewelry.jpg -->
       <div class="kace-jewelry-box">
         <h3>
           kace jewelry 
           <span class="badge-count">(6)</span>
         </h3>
-        <!-- Added image as requested: lacejewelry(6).png -->
-        <img src="lacejewelry(6).png" alt="Lace Jewelry Collection" class="lace-image" onerror="this.style.display='none'">
+        <!-- Two images side by side: lacejewelry(6).png and kace jewelry.jpg -->
+        <div class="image-row">
+          <img src="lacejewelry(6).png" alt="Lace Jewelry Collection" class="box-image" onerror="this.style.display='none'">
+          <img src="kace jewelry.jpg" alt="Kace Jewelry Signature" class="box-image" onerror="this.style.display='none'">
+        </div>
         <div class="lace-sub">— signature capsule · woven in elegance —</div>
         <div class="lace-grid-6">
           <div class="piece-card">
