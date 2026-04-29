@@ -217,6 +217,18 @@
       font-weight: 500;
       color: #1e4a6b;
     }
+    /* New image style inside the box */
+    .lace-image {
+      width: 100%;
+      border-radius: 28px;
+      margin: 16px 0 12px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+      display: block;
+    }
+    .lace-image:hover {
+      transform: scale(1.01);
+    }
     .lace-sub {
       font-size: 0.8rem;
       color: #2a5a7a;
@@ -594,7 +606,7 @@
       <div style="margin-top: 18px; font-size: 0.75rem; color:#2c5a7a;">the spirit that moves kace jewelry forward</div>
     </div>
 
-    <!-- TWO COLUMN SECTION: LEFT = birth of kace jewelry, RIGHT = kace jewelry (6) box -->
+    <!-- TWO COLUMN SECTION: LEFT = birth of kace jewelry, RIGHT = kace jewelry (6) box with added PNG image -->
     <div class="story-lace-row">
       <!-- left column: brand story -->
       <div class="story-column">
@@ -607,12 +619,14 @@
         </div>
       </div>
 
-      <!-- RIGHT column: KACE JEWELRY (6) box -->
+      <!-- RIGHT column: KACE JEWELRY (6) box with added lacejewelry(6).png image -->
       <div class="kace-jewelry-box">
         <h3>
           kace jewelry 
           <span class="badge-count">(6)</span>
         </h3>
+        <!-- Added image as requested: lacejewelry(6).png -->
+        <img src="lacejewelry(6).png" alt="Lace Jewelry Collection" class="lace-image" onerror="this.style.display='none'">
         <div class="lace-sub">— signature capsule · woven in elegance —</div>
         <div class="lace-grid-6">
           <div class="piece-card">
