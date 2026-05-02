@@ -184,6 +184,36 @@
     .story-column {
       flex: 1.2;
     }
+    
+    /* enhanced story-column with inner flex layout for image + text */
+    .story-content {
+      display: flex;
+      flex-direction: column;
+    }
+    .story-text {
+      flex: 1;
+    }
+    .inline-story-image {
+      margin-top: 28px;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.12);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 245, 0.7);
+      background: rgba(255, 255, 245, 0.3);
+      backdrop-filter: blur(4px);
+    }
+    .inline-story-image img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      max-height: 260px;
+      transition: transform 0.4s ease;
+    }
+    .inline-story-image:hover img {
+      transform: scale(1.02);
+    }
+    
     /* right side: kace jewelry box - glassmorphism on silk blue */
     .kace-jewelry-box {
       flex: 0.9;
@@ -259,6 +289,7 @@
       transition: all 0.25s ease;
       border: 1px solid rgba(255, 255, 245, 0.85);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+      cursor: pointer;
     }
     .piece-card:hover {
       transform: translateY(-5px);
@@ -628,16 +659,24 @@
       <div style="margin-top: 18px; font-size: 0.75rem; color:#2c5a7a;">the spirit that moves kace jewelry forward</div>
     </div>
 
-    <!-- TWO COLUMN SECTION: LEFT = birth of kace jewelry, RIGHT = kace jewelry (6) box with images -->
+    <!-- TWO COLUMN SECTION: LEFT = birth of kace jewelry with NEW inline image right beside the paragraph (placed after text) -->
     <div class="story-lace-row">
-      <!-- left column: brand story -->
+      <!-- left column: brand story with images.jpeg displayed below paragraph but still inside first box -->
       <div class="story-column">
-        <h2>the birth of kace jewelry</h2>
-        <p><strong>kace jewelry</strong> was created on the 17th of April, 2026, by <strong>Salome Lwanzo</strong> with the invaluable collaboration of <strong>Michelle Javaid</strong>. What began as a spark — an advertisement that caught Salome's eye — evolved into a bold, beautiful movement. Inspired by the interplay of light and lace texture, Salome decided to make a new move and craft a brand where artistry meets durability.</p>
-        <p>Every piece of kace jewelry is designed for those who see fashion as an extension of personality. From delicate chainmail-like lace motifs to soft metallic weaves, the brand redefines jewelry as second skin. Our mission is to fuse craftsmanship with modern vision — because beauty should never be fragile, but resilient.</p>
-        <div class="story-date">✦ founded april 17, 2026 · atelier: nairobi & london ✦</div>
-        <div class="visual-lace-mini">
-          <div class="lace-icon">🪢💎✨</div>
+        <div class="story-content">
+          <div class="story-text">
+            <h2>the birth of kace jewelry</h2>
+            <p><strong>kace jewelry</strong> was created on the 17th of April, 2026, by <strong>Salome Lwanzo</strong> with the invaluable collaboration of <strong>Michelle Javaid</strong>. What began as a spark — an advertisement that caught Salome's eye — evolved into a bold, beautiful movement. Inspired by the interplay of light and lace texture, Salome decided to make a new move and craft a brand where artistry meets durability.</p>
+            <p>Every piece of kace jewelry is designed for those who see fashion as an extension of personality. From delicate chainmail-like lace motifs to soft metallic weaves, the brand redefines jewelry as second skin. Our mission is to fuse craftsmanship with modern vision — because beauty should never be fragile, but resilient.</p>
+            <div class="story-date">✦ founded april 17, 2026 · atelier: nairobi & london ✦</div>
+          </div>
+          <!-- ADDED images.jpeg exactly here: right side within left column, after the paragraph that starts with "the birth of kace jewelry" -->
+          <div class="inline-story-image">
+            <img src="images.jpeg" alt="kace jewelry artistic vision - lace & elegance" onerror="this.src='https://placehold.co/600x400/b8def5/1a4a6e?text=kace+jewelry+vision'; this.onerror=null;">
+          </div>
+          <div class="visual-lace-mini">
+            <div class="lace-icon">🪢💎✨</div>
+          </div>
         </div>
       </div>
 
