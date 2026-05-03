@@ -240,6 +240,36 @@
       font-weight: 500;
       color: #4a6038;
     }
+    
+    /* Featured image (kace version hero) */
+    .featured-kace-image {
+      margin: 16px 0 20px;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255, 255, 245, 0.8);
+      background: rgba(245, 250, 235, 0.4);
+    }
+    .featured-kace-image img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      max-height: 220px;
+      transition: transform 0.4s ease;
+    }
+    .featured-kace-image:hover img {
+      transform: scale(1.02);
+    }
+    .featured-caption {
+      font-size: 0.7rem;
+      text-align: center;
+      margin-top: 8px;
+      color: #5a7342;
+      letter-spacing: 0.5px;
+      font-style: italic;
+    }
+    
     /* Image container for multiple images */
     .image-row {
       display: flex;
@@ -590,6 +620,9 @@
         min-width: 80px;
         max-height: 120px;
       }
+      .featured-kace-image img {
+        max-height: 180px;
+      }
     }
     @media (max-width: 640px) {
       .lace-grid-6 {
@@ -663,7 +696,7 @@
             <p>Every piece of kace jewelry is designed for those who see fashion as an extension of personality. From delicate chainmail-like lace motifs to soft metallic weaves, the brand redefines jewelry as second skin. Our mission is to fuse craftsmanship with modern vision — because beauty should never be fragile, but resilient.</p>
             <div class="story-date">✦ founded april 17, 2026 · atelier: nairobi & london ✦</div>
           </div>
-          <!-- ADDED images.jpeg exactly here: within left column after the paragraph content -->
+          <!-- images.jpeg within left column after paragraph content -->
           <div class="inline-story-image">
             <img src="images.jpeg" alt="kace jewelry artistic vision - lace & elegance" onerror="this.src='https://placehold.co/600x400/c9d4b1/4a6038?text=kace+jewelry+vision'; this.onerror=null;">
           </div>
@@ -673,18 +706,24 @@
         </div>
       </div>
 
-      <!-- RIGHT column: KACE JEWELRY (6) box with images: lacejewelry(6).png, kace jewelry.jpg, images.jpg, and now images.jpeg added -->
+      <!-- RIGHT column: KACE JEWELRY (6) box - added image.jpeg prominently as KACE VERSION featured image -->
       <div class="kace-jewelry-box">
         <h3>
           kace jewelry 
-          <span class="badge-count">(6)</span>
+          <span class="badge-count">kace version</span>
         </h3>
-        <!-- Four images in a responsive row: added images.jpeg as a fourth image -->
+        
+        <!-- FEATURED IMAGE.JPEG - KACE VERSION HERO IMAGE -->
+        <div class="featured-kace-image">
+          <img src="image.jpeg" alt="Kace Jewelry Signature Edition - Lace Masterpiece" onerror="this.src='https://placehold.co/800x400/c9d4b1/4a6038?text=KACE+VERSION+%7C+Signature+Collection'; this.onerror=null;">
+        </div>
+        <div class="featured-caption">✦ kace version · signature lace masterpiece ✦</div>
+        
+        <!-- Additional existing images below -->
         <div class="image-row">
           <img src="lacejewelry(6).png" alt="Lace Jewelry Collection" class="box-image" onerror="this.style.display='none'">
           <img src="kace jewelry.jpg" alt="Kace Jewelry Signature" class="box-image" onerror="this.style.display='none'">
           <img src="images.jpg" alt="Kace Jewelry Gallery" class="box-image" onerror="this.style.display='none'">
-          <img src="images.jpeg" alt="Kace Jewelry Artistic Detail" class="box-image" onerror="this.style.display='none'">
         </div>
         <div class="lace-sub">— signature capsule · woven in elegance —</div>
         <div class="lace-grid-6">
@@ -832,21 +871,4 @@
           alert('✧ Please provide a valid email address so we can reply. ✧');
           return;
         }
-        alert(`✨ Thank you ${nameVal}!\nYour message has been sent to the kace jewelry team.\nWe'll answer within 24h at ${emailVal}. ✨`);
-        nameInput.value = '';
-        emailInput.value = '';
-        msgInput.value = '';
-      });
-    }
-
-    const pieces = document.querySelectorAll('.piece-card');
-    pieces.forEach(card => {
-      card.addEventListener('click', () => {
-        const title = card.querySelector('h4')?.innerText;
-        if(title) console.log(`🔖 kace jewelry: ${title} — a masterpiece from our collection.`);
-      });
-    });
-  })();
-</script>
-</body>
-</html>
+        alert(`✨ Thank you ${nameVal}!\nYour message has been sent to the kace jewelry team.\nWe'll answer within 24
